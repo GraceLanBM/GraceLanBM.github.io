@@ -1,4 +1,4 @@
-This is my personal website that shows my projects, built with HTML/CSS. 
+Hi, I'm Grace Lan and this is my little corner of the internet that shows some of my projects! Built with HTML/CSS. ;)
 
 
 Template Credit: 
@@ -33,3 +33,6 @@ Credits:
 	Other:
 		jQuery (jquery.com)
 		Responsive Tools (github.com/ajlkn/responsive-tools)
+
+Avatar Credits: 
+Easy-Peasy Portrait (https://charat.me/portrait/)
