@@ -15,12 +15,17 @@
 		<!-- for font awesome icon -->
 		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 		<!-- for sidebar -->
-		<script src="https://code.jquery.com/jquery-3.3.1.js"></script>
-		<!--<script>
-			$(function() {
-				$("#sidebar").load("sidebar.html");
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>		
+		<script>
+			$(document).ready(function() {	
+				console.log("document ready");
+				$.getJSON("assets/json/projects.json", function(data) {
+					$.each(data, function(index, pj) {
+						$("#pjs").append("<li><a href='"+pj.shortName+".html'>"+pj.projectName+"</a></li>");
+					});
+				});
 			});
-		</script>-->
+		</script>
 	</head>
 	<body class="is-preload">
 
@@ -77,24 +82,7 @@
 									<ul>
 										<li><a href="index.html">Home</a></li>
 										<li><span class="opener">Projects</span>
-											<!--<ul>
-												<li><a href="charactersMod.html">Characters Mod for Idol Manager</a></li>
-												<li><a href="generic.html">YouTube Playlist Ranker</a></li>
-												<li><a href="generic.html">Alchemy Pot (still mixing...)</a></li>
-												<li><a href="generic.html">Emotion Recognition</a></li>
-												<li><a href="generic.html">QuadSense</a></li>
-												<li><a href="generic.html">Library Management System</a></li>
-												<li><a href="generic.html">Escape Game</a></li>
-											</ul>-->
-											<ul id="pjlist">
-												<script>
-												$.getJSON("assets/json/test.json", function(data) {
-													$.each(data, function(index, pj) {
-														$("#pjlist").append("<li>"+pj.projectName+"</li>");
-													});
-												});
-												</script>
-											</ul>
+											<ul id="pjs"></ul>
 										</li>
 										
 										<li><a href="elements.html">Interests</a></li>
