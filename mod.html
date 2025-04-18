@@ -15,7 +15,17 @@
 		<!-- for font awesome icon -->
 		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 		<!-- for sidebar -->
-		<script src="https://code.jquery.com/jquery-3.3.1.js"></script>
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>		
+		<script>
+			$(document).ready(function() {	
+				console.log("document ready");
+				$.getJSON("assets/json/projects.json", function(data) {
+					$.each(data, function(index, pj) {
+						$("#pjs").append("<li><a href='"+pj.shortName+".html'>"+pj.projectName+"</a></li>");
+					});
+				});
+			});
+		</script>
 	</head>
 	<body class="is-preload">
 
@@ -97,11 +107,50 @@
 					</div>
 
 				<!-- Sidebar -->
-					<div id="projectsidebar"></div>
-					<script>
-						$("#projectsidebar").load("index.html #sidebar");
-					</script>
+					<div id="sidebar">
+						<div class="inner">
 
+							<!-- Search -->
+								<section id="search" class="alt">
+									<form method="post" action="#">
+										<input type="text" name="query" id="query" placeholder="Search" />
+									</form>
+								</section>
+					
+							<!-- Menu -->
+								<nav id="menu">
+									<header class="major">
+										<h2>Menu</h2>
+									</header>
+									<ul>
+										<li><a href="index.html">Home</a></li>
+										<li><span class="opener">Projects</span>
+											<ul id="pjs"></ul>
+										</li>
+										
+										<li><a href="elements.html">Interests</a></li>
+									</ul>
+								</nav>
+					
+							<!-- Section -->
+								<section>
+									<header class="major">
+										<h2>Get in touch !</h2>
+									</header>
+									<ul class="contact">
+										<li class="icon brands fa-github-square"><a href="https://github.com/GraceLanBM">GraceLanBM</a></li>
+										<li class="icon brands fa-linkedin-square"><a href="https://www.linkedin.com/in/grace-lan-8b763a239">Grace Lan</a></li>
+										<li class="icon solid fa-envelope"><a href="mailto:tianhan.lan@ucalgary.ca">tianhan.lan@ucalgary.ca</a></li>
+									</ul>
+								</section>
+					
+							<!-- Footer -->
+								<footer id="footer">
+									<p class="copyright">&copy; 2025 Grace Lan. All rights reserved. Design: <a href="https://html5up.net">HTML5 UP</a>.</p>
+								</footer>
+					
+						</div>
+					</div>
 			</div>
 
 		<!-- Scripts -->
