@@ -14,14 +14,14 @@
 		<link rel="stylesheet" href="assets/css/main.css" />
 		<!-- for font awesome icon -->
 		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-		<!-- for sidebar -->
+		<!-- for sidebar & screenshots -->
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>		
 		<script>
 			$(document).ready(function() {	
-				console.log("document ready");
 				$.getJSON("assets/json/projects.json", function(data) {
 					$.each(data, function(index, pj) {
-						$("#pjs").append("<li><a href='"+pj.shortName+".html'>"+pj.projectName+"</a></li>");
+						<!-- Add project link & list to the sidebar -->
+						$("#pjs").append("<li><a href='"+pj.url+"'>"+pj.projectName+"</a></li>");
 					});
 				});
 			});
@@ -38,7 +38,7 @@
 
 							<!-- Header -->
 								<header id="header">
-									<a href="mod.html" class="logo">Characters Mod for Idol Manager</a>
+									<a href="mod.html" class="logo"><Strong>Characters Mod for Idol Manager</Strong></a>
 								</header>
 
 							<!-- Content -->
@@ -47,24 +47,46 @@
 										<h1>Characters Mod for Idol Manager</h1>
 									</header>
 
-									<!--
-									<span class="image main"><img src="images/pic11.jpg" alt="" /></span>
-									-->
 									<!-- Slideshow container -->
-									<div class="slideshow-container">
+									<script>
+										<!-- Add screenshots -->
+										$(document).ready(function() {	
+											var path = window.location.pathname;
+											var page = path.split("/").pop();
+											console.log(page);
+											$.getJSON("assets/json/projects.json", function(data) {
+												$.each(data, function(index, pj) {
+													if (pj.url == page) {
+														var total = pj.screenshot.length;
+														var shortName = pj.url.replace(".html", "");
+														console.log(total);
+														for (i = 0; i < total; i++) {
+															var picName = pj.screenshot[i];
+															var caption = picName.replace(".png", "");
+															var index = i+1;
+															caption = caption.charAt(0).toUpperCase()+caption.slice(1);
+															<!-- Generate images with number and caption text -->
+															$("#screenshot").append("<div class='mySlides fade'><div class='numbertext'>"+index+ "/"+total+"</div><img src='images/"+shortName+"/"+picName+"' alt='"+picName+"' style='width:100%'><div class='text'>"+caption+"</div></div>");
+															<!-- Add dots -->
+															$("#circle").append("<span class='dot' onclick='currentSlide("+index+")'></span>");
+														}
+													}
+												});
+											});
+											<!-- Slideshow script -->
+											$.getScript("assets/js/slideshow.js");
+										});
+									</script>
+									<div class="slideshow-container" id="screenshot">
 									
 										<!-- Images with number and caption text -->
+										<!-- Example
 										<div class="mySlides fade">
 											<div class="numbertext">1 / 6</div>
 											<img src="images/mod/audition.png" alt="audition.png" style="width:100%">
 											<div class="text">Audition</div>
 										</div>
-										
-										<div class="mySlides fade">
-											<div class="numbertext">2 / 6</div>
-											<img src="images/mod/dress1.png" alt="dress1.png" style="width:100%">
-											<div class="text">Dress 1</div>
-										</div>
+										-->
 										
 										<!-- Next and previous buttons -->
 										<span class="prev" onclick="plusSlide(-1)">&#10094;</span>
@@ -72,13 +94,11 @@
 									</div>
 									
 									<!-- Dots -->
-									<div style="text-align:center">
+									<div style="text-align:center" id="circle">
+										<!-- Example
 										<span class="dot" onclick="currentSlide(1)"></span>
-										<span class="dot" onclick="currentSlide(2)"></span>
+										-->
 									</div>
-									
-									<!-- Slideshow script -->
-									<script type="text/javascript" src="assets/js/slideshow.js"></script>
 									
 									<br>
 									<!-- Project description -->
@@ -98,6 +118,7 @@
 									</p>
 									
 									<br>
+									<!-- Tag -->
 									<a class="tagbox" href="projects?tag=JavaScript">JavaScript</a>
 									
 									<!-- Tag script

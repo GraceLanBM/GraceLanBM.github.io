@@ -18,10 +18,9 @@
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>		
 		<script>
 			$(document).ready(function() {	
-				console.log("document ready");
 				$.getJSON("assets/json/projects.json", function(data) {
 					$.each(data, function(index, pj) {
-						$("#pjs").append("<li><a href='"+pj.shortName+".html'>"+pj.projectName+"</a></li>");
+						$("#pjs").append("<li><a href='"+pj.url+"'>"+pj.projectName+"</a></li>");
 					});
 				});
 			});
