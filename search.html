@@ -60,7 +60,7 @@
 											<!-- Add project in post -->
 											var shortName = pj.url.replace(".html", "");
 											var picName = pj.screenshot[0];
-											$("#post").append("<article><div href='"+pj.url+"' class='image'><img src='images/"+shortName+"/"+picName+"' alt='"+picName+"' /></div><div class='text'><h3><a href='"+pj.url+"'>"+pj.projectName+"</a></h3><p>"+pj.description+"</p></div><ul class='actions'><li><a href='"+pj.url+"' class='button'>More</a></li></ul></article>");
+											$("#post").append("<article><div class='image'><a href='"+pj.url+"'><img src='images/"+shortName+"/"+picName+"' alt='"+picName+"' /></a><div class='image content'><h3><a href='"+pj.url+"'>"+pj.projectName+"</h3></a><p>"+pj.description+"</p></div></div></article>");
 										}
 									});
 									<!-- Handle no results -->
