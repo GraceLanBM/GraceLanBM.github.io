@@ -1,0 +1,150 @@
+<!DOCTYPE HTML>
+<!--
+	Editorial by HTML5 UP
+	html5up.net | @ajlkn
+	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+	
+	editor: Grace Lan
+-->
+<html>
+	<head>
+		<title>Search Results</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		<link rel="stylesheet" href="assets/css/main.css" />
+		<!-- for font awesome icon -->
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+		<!-- for sidebar -->
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>		
+		<script>
+			$(document).ready(function() {	
+				$.getJSON("assets/json/projects.json", function(data) {
+					$.each(data, function(index, pj) {
+						$("#pjs").append("<li><a href='"+pj.url+"'>"+pj.projectName+"</a></li>");
+					});
+				});
+			});
+		</script>
+	</head>
+	<body class="is-preload">
+
+		<!-- Wrapper -->
+			<div id="wrapper">
+
+				<!-- Main -->
+					<div id="main">
+						<div class="inner">
+
+							<!-- Header -->
+								<header id="header">
+									<div class="logo"><strong>Search Results</strong></div>
+								</header>
+
+							<!-- Tag search query -->
+							<script>
+							$(document).ready(function() {
+								<!-- Get current page name -->
+								var path = window.location.href;
+								var page = path.split("?tag=").pop();
+								console.log(page);
+								<!-- Add the tag that searched in header -->
+								$("#tag").append("<h2><a class='tagbox' href='search.html?tag="+page+"'>"+page+"</a></h2>");
+								
+								<!-- Read json file -->
+								$.getJSON("assets/json/projects.json", function(data) {
+									var pjlist = [];
+									$.each(data, function(index, pj) {
+										<!-- Find the project matches the tag -->
+										if (pj.tag.includes(page)) {
+											pjlist.push(pj.projectName);
+											<!-- Add project in post -->
+											var shortName = pj.url.replace(".html", "");
+											var picName = pj.screenshot[0];
+											$("#post").append("<article><div href='"+pj.url+"' class='image'><img src='images/"+shortName+"/"+picName+"' alt='"+picName+"' /></div><div class='text'><h3><a href='"+pj.url+"'>"+pj.projectName+"</a></h3><p>"+pj.description+"</p></div><ul class='actions'><li><a href='"+pj.url+"' class='button'>More</a></li></ul></article>");
+										}
+									});
+									<!-- Handle no results -->
+									if (pjlist.length == 0) {
+										window.location.href="404.html";
+									}
+								});	
+							});
+							</script>
+							<!-- Banner -->
+								<section>
+									<header class="major">
+									<div id="tag"></div>
+									</header>
+									<div class="posts" id="post">
+										<!-- Example
+										<article>
+											<a href="#" class="image"><img src="images/pic01.jpg" alt="" /></a>
+											<h3>Interdum aenean</h3>
+											<p>Aenean ornare velit lacus, ac varius enim lorem ullamcorper dolore. Proin aliquam facilisis ante interdum. Sed nulla amet lorem feugiat tempus aliquam.</p>
+											<ul class="actions">
+												<li><a href="#" class="button">More</a></li>
+											</ul>
+										</article>
+										-->
+									</div>
+								</section>
+						</div>
+					</div>
+
+				<!-- Sidebar -->
+					<div id="sidebar">
+						<div class="inner">
+
+							<!-- Search -->
+								<section id="search" class="alt">
+									<form method="post" action="#">
+										<input type="text" name="query" id="query" placeholder="Search" />
+									</form>
+								</section>
+					
+							<!-- Menu -->
+								<nav id="menu">
+									<header class="major">
+										<h2>Menu</h2>
+									</header>
+									<ul>
+										<li><a href="index.html">Home</a></li>
+										<li><span class="opener">Projects</span>
+											<ul id="pjs"></ul>
+										</li>
+										
+										<li><a href="elements.html">Interests</a></li>
+									</ul>
+								</nav>
+					
+							<!-- Section -->
+								<section>
+									<header class="major">
+										<h2>Get in touch !</h2>
+									</header>
+									<ul class="contact">
+										<li class="icon brands fa-github-square"><a href="https://github.com/GraceLanBM">GraceLanBM</a></li>
+										<li class="icon brands fa-linkedin-square"><a href="https://www.linkedin.com/in/grace-lan-8b763a239">Grace Lan</a></li>
+										<li class="icon solid fa-envelope"><a href="mailto:tianhan.lan@ucalgary.ca">tianhan.lan@ucalgary.ca</a></li>
+									</ul>
+								</section>
+					
+							<!-- Footer -->
+								<footer id="footer">
+									<p class="copyright">&copy; 2025 Grace Lan. All rights reserved. Design: <a href="https://html5up.net">HTML5 UP</a>.</p>
+								</footer>
+					
+						</div>
+					</div>
+
+			</div>
+
+		<!-- Scripts -->
+			<script src="assets/js/jquery.min.js"></script>
+			<script src="assets/js/browser.min.js"></script>
+			<script src="assets/js/breakpoints.min.js"></script>
+			<script src="assets/js/util.js"></script>
+			<script src="assets/js/main.js"></script>
+
+	</body>
+</html>

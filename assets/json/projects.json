@@ -2,15 +2,15 @@
 	{
 		"projectName": "Characters Mod for Idol Manager", 
 		"url": "mod.html", 
-		"tag": ["JavaScript"], 
+		"tag": ["JavaScript", "Mod"], 
 		"screenshot": ["audition.png", "dress1.png", "dress2.png", "idols.png", "leoneed.png", "single.png"],
 		"description": "Add 35 unique idols from Project Sekai (aka Hatsune Miku: Colorful Stage!). In addition to the main vitual singer characters, there are also 5 different Sekai versions of Miku, as well as MMJ Rin, VBS Len, Ln Luka, VBS MEIKO, and WS KAITO. You can switch between illustrations before and after they go upper grade (New illustrations from the JP version game, I think the EN version still not reach that event yet.). "
 	}, 
 	{
 		"projectName": "YouTube Playlist Ranker", 
 		"url": "playlist.html", 
-		"tag": ["Python", "API"], 
-		"screenshot": [], 
+		"tag": ["Python", "API", "JavaScript"], 
+		"screenshot": ["pic01.jpg"], 
 		"description": "This is playlist ranker description"
 	}, 
 	{
