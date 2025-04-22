@@ -3,15 +3,15 @@
 		"projectName": "Characters Mod for Idol Manager", 
 		"url": "mod.html", 
 		"tag": ["JavaScript", "Mod"], 
-		"screenshot": ["audition.png", "dress1.png", "dress2.png", "idols.png", "leoneed.png", "single.png"],
-		"description": "Add 35 unique idols from Project Sekai (aka Hatsune Miku: Colorful Stage!). In addition to the main vitual singer characters, there are also 5 different Sekai versions of Miku, as well as MMJ Rin, VBS Len, Ln Luka, VBS MEIKO, and WS KAITO. You can switch between illustrations before and after they go upper grade (New illustrations from the JP version game, I think the EN version still not reach that event yet.). "
+		"screenshot": ["idols.png", "audition.png", "dress1.png", "dress2.png",  "leoneed.png", "single.png"],
+		"description": "Designed and developed a custom mod using JavaScript for a game called Idol Manager — because I want to play some Project Sekai characters in this game! :D After read their mod documentation guide and playing with the game assets, I added 35 characters and created this mod. It ended up getting some love and subscribed by 670 users around the world! "
 	}, 
 	{
 		"projectName": "YouTube Playlist Ranker", 
 		"url": "playlist.html", 
-		"tag": ["Python", "API", "JavaScript"], 
+		"tag": ["Python", "API"], 
 		"screenshot": ["pic01.jpg"], 
-		"description": "This is playlist ranker description"
+		"description": "This is a Python program that used YouTube API to rank videos based on their view account. "
 	}, 
 	{
 		"projectName": "Alchemy Pot (still mixing...)", 

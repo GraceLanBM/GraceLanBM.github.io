@@ -120,16 +120,15 @@
 									
 									<br>
 									<!-- Project description -->
-									<p>Add 35 unique idols from Project Sekai (aka Hatsune Miku: Colorful Stage!). In addition to the main vitual singer characters, there are also 5 different Sekai versions of Miku, as well as MMJ Rin, VBS Len, Ln Luka, VBS MEIKO, and WS KAITO. You can switch between illustrations before and after they go upper grade (New illustrations from the JP version game, I think the EN version still not reach that event yet.).
-									<br>
-									<h4>Notes：</h4>
-									<ol>
-										<li>All unique idols' rarities are 'normal'. When the mod is enabled, only these unique idols can be drawn. If you want to draw original idols, you can set the 'Ignore_Idol_Portraits' in the 'ignore.json' file to false. 'ignore.json' file can be found in the mod folder.</li>
-										<li>The attributes and traits just set by my personal opinion, so welcome to change them!</li>
-										<li>The intro lines were selected from the self-introductions in the English version of the game. If you have better ideas, feel free to contact me!</li>
-									</ol>
-									<br>
-									<p>I probably will add more features such as random Project Sekai original song titles when I have time! :DAdd 35 unique idols from Project Sekai (aka Hatsune Miku: Colorful Stage!). In addition to the main vitual singer characters, there are also 5 different Sekai versions of Miku, as well as MMJ Rin, VBS Len, Ln Luka, VBS MEIKO, and WS KAITO. You can switch between illustrations before and after they go upper grade (New illustrations from the JP version game, I think the EN version still not reach that event yet.).
+									<h3>How I Start</h3>
+									<p>This project started because I saw there are plenty of character mods in steam workshop, but none of them included Project Sekai characters especially at that time these characters have new illustrations and I wanted both old and new illustrations for them. </p>
+									
+									<h3>How I Built the Mod</h3>
+									<p>I began by searching and found <a href="https://docs.google.com/document/d/15vAJ-VFSL1jmOnoM4_M9C63RM-08kKtKyzo6-t3amV0/edit?usp=drive_link">Idol Manager editor guide</a>. After reading the guide, digging into the game's asset structure, and checking other character mods' as examples. I extrat and format the characters' illustrations in the correct folder and wrote the json files for them. </p>
+									<p>Of course, things didn't always go smoothly. The first and the most time consuming bug I met was the small pictures didn't match the avator. After some tests, I found that because the game automatically extract the character's illustration for the avator. So I need to add specific coordinates for each character in json file to make the game cut the correct place. Then the problem became the coordinates didn't reflect to different illustrations of one character. To fix this bug, I decided to modify the illustration to make their avators around the same coordinates. Finally, after this change, the game shows the correct avator for all characters! 
+									
+									<h3>Further more</h3>
+									<p>I also wanted the mod to be accessible to fans in muultiple regions, so I added support for three languages, included English, Chinese and Japanese. It was a bit of extra work, but totally worth it! Over 670 people ended up subscribing to the mod! 
 									</p>
 
 									<p>Link: <a href="https://steamcommunity.com/sharedfiles/filedetails/?id=3324673768" target="_blank" rel="noopener noreferrer">English version</a>, <a href="https://steamcommunity.com/sharedfiles/filedetails/?id=3323565583" target="_blank" rel="noopener noreferrer">Chinese version</a>, <a href="https://steamcommunity.com/sharedfiles/filedetails/?id=3324624091" target="_blank" rel="noopener noreferrer">Japanese version</a>
