@@ -65,7 +65,7 @@
 									});
 									<!-- Handle no results -->
 									if (pjlist.length == 0) {
-										window.location.href="404.html";
+										$("#post").append("<article><div class='image'><img src='images/easy-peasy_404.png' alt='easy-peasy_404.png'><div class='image content'><h2>Sorry, I can't find any results related to your search! </h2><p>Wanna try the following keywords instead?</p></div></div></article>");
 									}
 								});	
 							});
@@ -97,8 +97,8 @@
 
 							<!-- Search -->
 								<section id="search" class="alt">
-									<form method="post" action="#">
-										<input type="text" name="query" id="query" placeholder="Search" />
+									<form method="get" action="search.html">
+										<input type="text" name="tag" id="query" placeholder="Search" />
 									</form>
 								</section>
 					
