@@ -1876,6 +1876,16 @@ button,
 		padding-top: 1em;
 		max-width: 100%;
 	}}
+	
+video {
+	max-width: 100%;	
+}
+@media screen and (max-width: 736px) { 
+	video {
+		width: 100%; }}
+@media screen and (max-width: 480px) {
+	video {
+		width: 100%; }}
 			
 * {box-sizing:border-box}
 

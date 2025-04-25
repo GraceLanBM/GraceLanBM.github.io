@@ -47,6 +47,34 @@
 										<h1>YouTube Playlist Ranker</h1>
 									</header>
 									
+									<!-- Load data from json file -->
+									<script>
+									$(document).ready(function() {
+										<!-- Get current page name -->
+										var path = window.location.pathname;
+										var page = path.split("/").pop();
+										console.log(page);
+										<!-- Read json file -->
+										$.getJSON("assets/json/projects.json", function(data) {
+											$.each(data, function(index, pj) {
+												<!-- Find the project matches current page -->
+												if (pj.url == page) {
+													
+													<!-- Add tag -->
+													total = pj.tag.length;
+													console.log(total);
+													for (i = 0; i < total; i ++) {
+														var tagName = pj.tag[i];
+														console.log(tagName);
+														<!-- Generate tags -->
+														$("#tag").append("<a class='tagbox' href='search.html?tag="+tagName+"'>"+tagName+"</a>");
+													}
+												}
+											});
+										});
+									});
+									</script>
+									
 									<!-- Slideshow container -->
 									<div class="slideshow-container" id="screenshot">
 									
