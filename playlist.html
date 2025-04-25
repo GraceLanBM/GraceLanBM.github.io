@@ -8,7 +8,7 @@
 -->
 <html>
 	<head>
-		<title>Characters Mod for Idol Manager</title>
+		<title>YouTube Playlist Ranker</title>
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
 		<link rel="stylesheet" href="assets/css/main.css" />
@@ -38,84 +38,24 @@
 
 							<!-- Header -->
 								<header id="header">
-									<a href="mod.html" class="logo"><Strong>Characters Mod for Idol Manager</Strong></a>
+									<a href="playlist.html" class="logo"><Strong>YouTube Playlist Ranker</Strong></a>
 								</header>
 
 							<!-- Content -->
 								<section>
 									<header class="main">
-										<h1>Characters Mod for Idol Manager</h1>
+										<h1>YouTube Playlist Ranker</h1>
 									</header>
-
-									<!-- Load data from json file -->
-									<script>
-									$(document).ready(function() {
-										<!-- Get current page name -->
-										var path = window.location.pathname;
-										var page = path.split("/").pop();
-										console.log(page);
-										<!-- Read json file -->
-										$.getJSON("assets/json/projects.json", function(data) {
-											$.each(data, function(index, pj) {
-												<!-- Find the project matches current page -->
-												if (pj.url == page) {
-												
-													<!-- Add screenshot -->
-													var total = pj.screenshot.length;
-													var shortName = pj.url.replace(".html", "");
-													console.log(total);
-													for (i = 0; i < total; i++) {
-														var picName = pj.screenshot[i];
-														var caption = picName.replace(".png", "");
-														var index = i+1;
-														caption = caption.charAt(0).toUpperCase()+caption.slice(1);
-														
-														<!-- Generate images with number and caption text -->
-														$("#screenshot").append("<div class='mySlides fade'><div class='numbertext'>"+index+ "/"+total+"</div><img src='images/"+shortName+"/"+picName+"' alt='"+picName+"' style='width:100%'><div class='text'>"+caption+"</div></div>");
-														
-														<!-- Add dots -->
-														$("#slideshowdot").append("<span class='dot' onclick='currentSlide("+index+")'></span>");
-													}
-													
-													<!-- Add tag -->
-													total = pj.tag.length;
-													console.log(total);
-													for (i = 0; i < total; i ++) {
-														var tagName = pj.tag[i];
-														console.log(tagName);
-														<!-- Generate tags -->
-														$("#tag").append("<a class='tagbox' href='search.html?tag="+tagName+"'>"+tagName+"</a>");
-													}
-												}
-											});
-										});
-										<!-- Slideshow script -->
-										$.getScript("assets/js/slideshow.js");
-									});
-									</script>
 									
 									<!-- Slideshow container -->
 									<div class="slideshow-container" id="screenshot">
 									
-										<!-- Images with number and caption text -->
-										<!-- Example
-										<div class="mySlides fade">
-											<div class="numbertext">1 / 6</div>
-											<img src="images/mod/audition.png" alt="audition.png" style="width:100%">
-											<div class="text">Audition</div>
-										</div>
-										-->
-										
-										<!-- Next and previous buttons -->
-										<span class="prev" onclick="plusSlide(-1)">&#10094;</span>
-										<span class="next" onclick="plusSlide(1)">&#10095;</span>
-									</div>
-									
-									<!-- Dots -->
-									<div style="text-align:center" id="slideshowdot">
-										<!-- Example
-										<span class="dot" onclick="currentSlide(1)"></span>
-										-->
+										<!-- Video -->
+										<video width="775" height="510" controls muted autoplay>
+											<source src="images/playlist/demo.mov" type="video/mp4">
+											Playlist Demo
+										</video>
+
 									</div>
 									
 									<br>

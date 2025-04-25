@@ -10,7 +10,7 @@
 		"projectName": "YouTube Playlist Ranker", 
 		"url": "playlist.html", 
 		"tag": ["Python", "API"], 
-		"screenshot": ["pic01.jpg"], 
+		"screenshot": ["demo_screenshot.png"], 
 		"description": "This is a Python program that used YouTube API to rank videos based on their view account. "
 	}, 
 	{
