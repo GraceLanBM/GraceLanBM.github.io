@@ -91,18 +91,29 @@
 									<h3>How I Started</h3>
 									<p>This project started because I saw there were plenty of character mods in the Steam Workshop, but none of them included Project Sekai characters. Especially at that time, these characters had new illustrations, and I wanted to include both the old and new versions! </p>
 									
-									<h3>How I Built the Mod</h3>
-									<p>I began by searching and found the <a href="https://docs.google.com/document/d/15vAJ-VFSL1jmOnoM4_M9C63RM-08kKtKyzo6-t3amV0/edit?usp=drive_link" target="_blank" rel="noopener noreferrer">Idol Manager editor guide</a>. After reading reading through it, digging into the game's asset structure, and checking out a few other character mods as examples, I got to work. I extracted the characters' illustrations and inserted them into the correct folder and wrote up the JSON files. </p>
-									<p>Of course, it didn't all go smoothly. The first and the most time consuming bug I ran into was that the mini portraits didn't match the character's head. After some tests, I figured out it was because the game automatically crops the avatar from the illustration. So I had to manually set coordinates for each character in the JSON file to make the game crops the correct part. Then came another problem that the same coordinates didn't apply to different illustrations of the same character. To fix this bug, I decided to modify the illustrations to make their heads appear around the same spot. Finally, after a long time of work, the game showed the correct avatar for all characters and their different illustrations! </p>
-									
-									<h3>Language Support</h3>
-									<p>I also wanted the mod to be accessible to fans in multiple regions, so I added support for three languages, included English, Chinese and Japanese. It was a bit of extra work, but totally worth it! Over 670 people ended up subscribing to the mod! </p>
-
-									<p>Steam Workshop Link: <a href="https://steamcommunity.com/sharedfiles/filedetails/?id=3324673768" target="_blank" rel="noopener noreferrer">English version</a>, <a href="https://steamcommunity.com/sharedfiles/filedetails/?id=3323565583" target="_blank" rel="noopener noreferrer">Chinese version</a>, <a href="https://steamcommunity.com/sharedfiles/filedetails/?id=3324624091" target="_blank" rel="noopener noreferrer">Japanese version</a>
-									</p>
-									
 									<h3>Future Plans (Maybe)</h3>
 									<p>I haven't touched the mod in a while, and I don't think I'll have time to update it anytime soon — but I've still got a few ideas about it! Maybe give the characters some custom events, etc... </p>
+									
+									<!-- User input -->
+									<h3>Form</h3>
+									<div class="row gtr-200">
+									<div class="col-6 col-12-medium">
+										<form method="post" action="https://playlist-362443617608.us-west1.run.app" target="_blank">
+											<div class="row gtr-uniform" width="300px">
+											<div class="col-6 col-12-xsmall">
+												<input type="text" name="plid" id="plid" value="" placeholder="YouTube playlist id">
+											</div>
+											<div class="col-6 col-12-xsmall" width="100px">
+												<input type="text" name="top" id="top" value="" placeholder="Number of top videos">
+											</div>
+											
+											<div class="col-6 col-12-xsmall">
+												<button type="submit" class="button primary icon solid fa-search">Submit</button>
+											</div>
+											</div>
+										</form>
+									</div>
+									</div>
 									
 									<br>
 									<!-- Tag -->
