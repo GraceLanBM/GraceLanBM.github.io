@@ -1788,7 +1788,6 @@ button,
         -webkit-transform: scale(1.02);
         -ms-transform: scale(1.02);
 	    transform: scale(1.02); }
-		
 	.posts article .image .content {
       -moz-flex-grow: 1;
       -webkit-flex-grow: 1;
@@ -1987,6 +1986,60 @@ video {
 
 .tagbox:hover {
 	background-color: #E8E8E8;
+}
+
+/* Result container */
+.result-container {
+	max-width: 1000px;
+	position: relative;
+	margin: auto;
+}
+    .result-container article {
+        padding-bottom: 3em;
+        position: relative;
+        max-width: 100%;
+    }
+    .result-container article:before {
+      background: rgba(210, 215, 217, 0.75);
+      content: '';
+      display: block;
+      height: 1px;
+      top: -2em;
+      position: absolute;
+      width: 100%; }
+        .result-container article iframe {
+        max-width: 40%;
+        float: left;
+        }
+        .result-container article .info {
+        max-width: 60%;
+        position: relative;
+        margin-left: 25em;
+        }
+@media screen and (max-width: 736px) {
+    .result-container article iframe {
+        max-width: 100%;
+    }
+    .result-container article .info {
+        max-width: 100%;
+        margin-left: 0;
+    }
+    .result-container article:before {
+        top: -1em;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .result-container article iframe {
+        max-width: 100%;
+    }
+    .result-container article .info {
+        max-width: 100%;
+        margin-left: 0;
+    }
+    .result-container article:before {
+        top: -1em;
+    }
 }
 
 /* Wrapper */
