@@ -104,7 +104,7 @@
 												<input type="text" name="plid" id="plid" value="" placeholder="YouTube playlist id" required>
 											</div>
 											<div class="col-6 col-12-xsmall" width="100px">
-												<input type="text" name="top" id="top" value="" placeholder="Number of top videos">
+												<input type="number" min="1" name="top" id="top" value="" placeholder="Number of top videos">
 											</div>
 											
 											<div class="col-6 col-12-xsmall">
@@ -114,9 +114,6 @@
 										</form>
 									</div>
 									</div>
-                                    
-                                    <!-- Result container -->
-                                    <div class="result-container" id="result-container"></div>
                                     
                                     <script>
                                         const form = document.querySelector("#plform");
@@ -135,14 +132,57 @@
                                             <!-- Get result -->
                                             let result = await response.json();
                                             console.log(result);
-                                            console.log("plid: ", result[0]["plid"]);
+                                            console.log("totalResults: ", result[0]["totalResults"]);
                                             
-                                            <!-- Add result to result-container -->
-                                            document.getElementById("result-container").innerHTML = "<h3>Results: </h3><p><Strong>Playlist: </Strong><a href='https://www.youtube.com/watch?list=" + result[0]["plid"] + "' target='_blank' rel='noopener noreferrer'>" + result[0]["pltitle"] + "</a><br>Top <Strong>" + result[0]["top"] + "</Strong> of total <Strong>" + result[0]["numOfVideos"] + "</Strong> videos</p>";
+                                            <!-- Handle no result -->
+                                            if (result[0]["totalResults"] == 0) {
+                                                document.getElementById("result-container").innerHTML = "<h3>No Results: </h3><p><b>Playlist: </b><em>" + result[0]["plid"] + "</em> doesn't exist! Please check you entered the correct playlist id ;w;</p>";
                                             
-                                            <!-- Generate each video -->
-                                            for (i = 1; i < result[0]["top"]+1; i++) {
-                                                document.getElementById("result-container").innerHTML += "<article><iframe src='https://www.youtube.com/embed/"+result[i]["vid"] + "'></iframe><div class='info'><h3><a href='https://www.youtube.com/watch?v=" + result[i]["vid"] + "' target='_blank' rel='noopener noreferrer'>" + result[i]["vtitle"] + "</a></h3><p><b>Author: </b>" + result[i]["author"] + "<br><b>Published Time: </b>" + result[i]["pubdate"] + "<br><b>Views: </b>" + result[i]["views"] + "</p></div></article>";
+                                            } else {
+                                                <!-- Add result to result-container -->
+                                                document.getElementById("result-container").innerHTML = "<h3>Results: </h3><p><Strong>Playlist: </Strong><a href='https://www.youtube.com/watch?list=" + result[1]["plid"] + "' target='_blank' rel='noopener noreferrer'>" + result[1]["pltitle"] + "</a><br>Top <Strong>" + result[1]["top"] + "</Strong> of total <Strong>" + result[1]["numOfVideos"] + "</Strong> videos</p>";
+                                            
+                                                <!-- Generate pages -->
+                                                var numOfPages = 1;
+                                                var maxVideos = 5;
+                                                var top = result[1]["top"];
+                                                
+                                                if (top > maxVideos) {
+                                                    <!-- Calculate how many pages need -->
+                                                    numOfPages = Math.ceil(top/maxVideos);
+                                                }
+                                                console.log("total page: ", numOfPages);
+                                                <!-- Add prev button -->
+                                                document.getElementById("pagination").innerHTML = "<li><a class='button' id='prev' href='javascript:plusPage(-1);'>Prev</a></li>";
+                                                    
+                                                <!-- Remove first two objects in results -->
+                                                result.splice(0, 2);
+                                                console.log("result after cut: ", result);
+                                                
+                                                for (i = 0; i < numOfPages; i++) {
+                                                    var pageContent = "<div class='myPages fade'>";
+                                                    
+                                                    <!-- Generate each video -->
+                                                    for (j = 0; j < maxVideos; j++) {
+                                                        var videoIndex = j + i * maxVideos;
+                                                        if (videoIndex >= top) {
+                                                            break;
+                                                        }
+                                                        pageContent += "<article><iframe src='https://www.youtube.com/embed/" + result[videoIndex]["vid"] + "'></iframe><div class='info'><h3><a href='https://www.youtube.com/watch?v=" + result[videoIndex]["vid"] + "' target='_blank' rel='noopener noreferrer'>" + result[videoIndex]["vtitle"] + "</a></h3><p><b>Author: </b><a href='https://www.youtube.com/channel/" + result[videoIndex]["aid"] + "' target='_blank' rel='noopener noreferrer'>" + result[videoIndex]["author"] + "</a><br><b>Published Time: </b>" + result[videoIndex]["pubdate"] + "<br><b>Views: </b>" + result[videoIndex]["views"] + "</p></div></article>";
+                                                    }
+                                                    
+                                                    pageContent += "</div>";
+                                                    document.getElementById("result-container").innerHTML += pageContent;
+                                                    <!-- Add pagination -->
+                                                    document.getElementById("pagination").innerHTML += "<li><a class='page' href='javascript:currentPage(" + (i+1) + ");'>" + (i+1) + "</a></li>";
+                                                    
+                                                }
+                                                
+                                                <!-- Add next button -->
+                                                document.getElementById("pagination").innerHTML += "<li><a class='button' id='next'  href='javascript:plusPage(1);'>Next</a></li>";
+                                                
+                                                <!-- Load pageshow script -->
+                                                $.getScript("assets/js/pageshow.js");
                                             }
                                         }
                                         
@@ -152,6 +192,9 @@
                                         });                                      
                                     </script>
                                     
+                                    <!-- Result container -->
+                                    <div class="result-container" id="result-container"></div>
+                                    <ul class="pagination" id="pagination"></ul>
 									
 									<br>
 									<!-- Tag -->
