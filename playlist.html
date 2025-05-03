@@ -108,7 +108,7 @@
 											</div>
 											
 											<div class="col-6 col-12-xsmall">
-												<button type="submit" class="button primary icon solid fa-search">Submit</button>
+												<button id="submitButton" type="submit" class="button primary"><i id="submitIcon" class="icon solid fa-search"></i>   Submit</button>
 											</div>
 											</div>
 										</form>
@@ -119,6 +119,11 @@
                                         const form = document.querySelector("#plform");
                                         
                                         async function sendData() {
+											<!-- Change button to loading -->
+											document.getElementById("submitIcon").classList.remove("fa-search");
+											document.getElementById("submitIcon").classList.add("fa", "fa-spinner", "fa-spin");
+											document.getElementById("submitButton").classList.add("disabled");
+											
                                             <!-- Prepare request body -->
                                             const formdata = new FormData(form);
                                             console.log("form: ", ...formdata);
@@ -136,7 +141,9 @@
                                             
                                             <!-- Handle no result -->
                                             if (result[0]["totalResults"] == 0) {
-                                                document.getElementById("result-container").innerHTML = "<h3>No Results: </h3><p><b>Playlist: </b><em>" + result[0]["plid"] + "</em> doesn't exist! Please check you entered the correct playlist id ;w;</p>";
+                                                document.getElementById("result-container").innerHTML = "<h3>No Results: </h3><p><b>Playlist: </b><em>" + result[0]["plid"] + "</em> doesn't exist! Please check you entered the correct playlist id ;w;</p><div class='myPages fade'></div>";
+                                                <!-- Add pagination buttons -->
+                                                document.getElementById("pagination").innerHTML = "<li><a class='button' id='prev' href='javascript:plusPage(-1);'>Prev</a></li><li><a class='page' href='javascript:currentPage(1);'>1</a></li><li><a class='button' id='next'  href='javascript:plusPage(1);'>Next</a></li>";
                                             
                                             } else {
                                                 <!-- Add result to result-container -->
@@ -180,10 +187,16 @@
                                                 
                                                 <!-- Add next button -->
                                                 document.getElementById("pagination").innerHTML += "<li><a class='button' id='next'  href='javascript:plusPage(1);'>Next</a></li>";
-                                                
-                                                <!-- Load pageshow script -->
-                                                $.getScript("assets/js/pageshow.js");
+   
                                             }
+                                            <!-- Stop loading icon -->
+                                            document.getElementById("submitIcon").classList.remove("fa", "fa-spinner", "fa-spin");
+                                            document.getElementById("submitIcon").classList.add("fa-search");
+                                            document.getElementById("submitButton").classList.remove("disabled");
+                                            
+                                            <!-- Load pageshow script -->
+                                            $.getScript("assets/js/pageshow.js");
+                                            currentPage(1);
                                         }
                                         
                                         form.addEventListener("submit", (event) => {
