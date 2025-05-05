@@ -89,10 +89,14 @@
 									<br>
 									<!-- Project description -->
 									<h3>How I Started</h3>
-									<p>This project started because I saw there were plenty of character mods in the Steam Workshop, but none of them included Project Sekai characters. Especially at that time, these characters had new illustrations, and I wanted to include both the old and new versions! </p>
+									
+									<h3>A Python Program</h3>
+									
+									<h3>Security Problem</h3>
+									
+									<h3>Website Version</h3>
 									
 									<h3>Future Plans (Maybe)</h3>
-									<p>I haven't touched the mod in a while, and I don't think I'll have time to update it anytime soon — but I've still got a few ideas about it! Maybe give the characters some custom events, etc... </p>
 									
 									<!-- User input -->
 									<h3>Form</h3>
@@ -175,7 +179,7 @@
                                                         if (videoIndex >= top) {
                                                             break;
                                                         }
-                                                        pageContent += "<article><iframe src='https://www.youtube.com/embed/" + result[videoIndex]["vid"] + "'></iframe><div class='info'><h3><a href='https://www.youtube.com/watch?v=" + result[videoIndex]["vid"] + "' target='_blank' rel='noopener noreferrer'>" + result[videoIndex]["vtitle"] + "</a></h3><p><b>Author: </b><a href='https://www.youtube.com/channel/" + result[videoIndex]["aid"] + "' target='_blank' rel='noopener noreferrer'>" + result[videoIndex]["author"] + "</a><br><b>Published Time: </b>" + result[videoIndex]["pubdate"] + "<br><b>Views: </b>" + result[videoIndex]["views"] + "</p></div></article>";
+                                                        pageContent += "<article><iframe src='https://www.youtube.com/embed/" + result[videoIndex]["vid"] + "'></iframe><div class='info'><h3><a href='https://www.youtube.com/watch?v=" + result[videoIndex]["vid"] + "' target='_blank' rel='noopener noreferrer'>" + (videoIndex+1) + ". " + result[videoIndex]["vtitle"] + "</a></h3><p><b>Author: </b><a href='https://www.youtube.com/channel/" + result[videoIndex]["aid"] + "' target='_blank' rel='noopener noreferrer'>" + result[videoIndex]["author"] + "</a><br><b>Published Time: </b>" + result[videoIndex]["pubdate"] + "<br><b>Views: </b>" + result[videoIndex]["views"] + "</p></div></article>";
                                                     }
                                                     
                                                     pageContent += "</div>";
