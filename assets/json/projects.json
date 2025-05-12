@@ -9,9 +9,9 @@
 	{
 		"projectName": "YouTube Playlist Ranker", 
 		"url": "playlist.html", 
-		"tag": ["Python", "API"], 
+		"tag": ["Python", "API", "Backend", "Google Cloud Run"], 
 		"screenshot": ["demo_screenshot.png"], 
-		"description": "This is a Python program that used YouTube API to rank videos based on their view account. "
+		"description": "This project started as a Python program that used the YouTube API to rank videos based on their view count. After that, I moved the program to the backend, so now you can simply submit the playlist ID through a website form and get the results right on your screen! "
 	}, 
 	{
 		"projectName": "Alchemy Pot (still mixing...)", 

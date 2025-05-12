@@ -74,12 +74,20 @@
 										});
 									});
 									</script>
+
+									<!-- Project description -->
+									<h3>How I Started</h3>
+									<p>This project began with a simple personal curiosity: rank videos by views in a specific playlist! With over 100 videos, it's hard to count their views manually — so I decided to write a Python program for this mission! </p>
+									<p>In the very first version, I used BeautifulSoup library which can request websites and search for the specific class to determine the views. However, it can't scroll to load more videos in the playlist. So I switched to use Selenium which can open a real web browser and lets me control it. It can scroll and load more content — success! Well, then the another problem came out: YouTube's ads! Since Selenium can't skip the ads, the data extraction gets interrupted when the ads came up. After that, I did some research online and discovered the YouTube API, which is a much cleaner and more reliable way to get the data from YouTube! </p>
+									
+									<h3>A Python Program with YouTube API</h3>
+									<p>The good news is that the YouTube API has a clean and helpful guide! I created a credential key and got everything set up by simply following the guide. The second version of my Python program runs great, and I also added a progress bar to display the process. (The video below shows what it looks like in action! You can also find it as <code>playlist_api.py</code> in the Github repository linked below!) </p>
 									
 									<!-- Slideshow container -->
 									<div class="slideshow-container" id="screenshot">
 									
 										<!-- Video -->
-										<video width="775" height="510" controls muted autoplay>
+										<video width="775" height="510" controls muted>
 											<source src="images/playlist/demo.mov" type="video/mp4">
 											Playlist Demo
 										</video>
@@ -87,16 +95,14 @@
 									</div>
 									
 									<br>
-									<!-- Project description -->
-									<h3>How I Started</h3>
+									<p>But... there was a small problem. Since this was just a personal tool (and I'll admit, I was feeling a bit lazy XD), I hardcoded the credential key in the program. It's not a big problem when I just use it personally — until I decided to showcase this project (like putting it on my resume, this website, etc...). Put a sensitive key in the code didn't seem like a good idea and it's also not a good coding habit in terms of security. </p>
 									
-									<h3>A Python Program</h3>
-									
-									<h3>Security Problem</h3>
-									
-									<h3>Website Version</h3>
+									<h3>Website Version and the Security Problem</h3>
+									<p></p>
 									
 									<h3>Future Plans (Maybe)</h3>
+									
+									<p>Github Respository Link: <a href="https://github.com/GraceLanBM/ProjectPlayList" target="_blank" rel="noopener noreferrer">ProjectPlayList</a></p>
 									
 									<!-- User input -->
 									<h3>Form</h3>
