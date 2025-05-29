@@ -46,16 +46,18 @@
 								<!-- Get current page name -->
 								var path = window.location.href;
 								var page = path.split("?tag=").pop();
+								var tagName = decodeURIComponent(page);
 								console.log(page);
+								console.log(tagName);
 								<!-- Add the tag that searched in header -->
-								$("#tag").append("<h2><a class='tagbox' href='search.html?tag="+page+"'>"+page+"</a></h2>");
+								$("#tag").append("<h2><a class='tagbox' style='display:inline' href='search.html?tag="+page+"'>"+tagName+"</a></h2>");
 								
 								<!-- Read json file -->
 								$.getJSON("assets/json/projects.json", function(data) {
 									var pjlist = [];
 									$.each(data, function(index, pj) {
 										<!-- Find the project matches the tag -->
-										if (pj.tag.includes(page)) {
+										if (pj.tag.includes(tagName)) {
 											pjlist.push(pj.projectName);
 											<!-- Add project in post -->
 											var shortName = pj.url.replace(".html", "");
