@@ -5,6 +5,7 @@
 	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
 	
 	editor: Grace Lan
+	references: 1. special characters: https://stackoverflow.com/questions/1787322/what-is-the-htmlspecialchars-equivalent-in-javascript
 -->
 <html>
 	<head>
@@ -81,7 +82,7 @@
 									<p>In the very first version, I used BeautifulSoup library which can request websites and search for the specific class to determine the views. However, it can't scroll to load more videos in the playlist. So I switched to use Selenium which can open a real web browser and lets me control it. It can scroll and load more content — success! Well, then the another problem came out: YouTube's ads! Since Selenium can't skip the ads, the data extraction gets interrupted when the ads came up. After that, I did some research online and discovered the <a href="https://developers.google.com/youtube/v3" target="_blank" rel="noopener noreferrer">YouTube API</a>, which is a much cleaner and more reliable way to get the data from YouTube! </p>
 									
 									<h3>A Python Program with <a href="https://developers.google.com/youtube/v3" target="_blank" rel="noopener noreferrer">YouTube API</a></h3>
-									<p>The good news is that the <a href="https://developers.google.com/youtube/v3" target="_blank" rel="noopener noreferrer">YouTube API</a> has a clean and helpful guide! I created a credential key and got everything set up by simply following the guide. The second version of my Python program runs great, and I also added a progress bar to display the process. (The video below shows what it looks like when running in terminal! You can also find it as <code>playlist_api.py</code> in the Github repository linked below!) </p>
+									<p>The good news is that the <a href="https://developers.google.com/youtube/v3" target="_blank" rel="noopener noreferrer">YouTube API</a> has a clean and helpful guide! I created a credential key and got everything set up by simply following the guide. The second version of my Python program runs great, and I also added a progress bar to display the process. (The video below shows what it looks like when running in terminal! You can also find it as <code>playlist_api.py</code> in the GitHub repository: <a href="https://github.com/GraceLanBM/ProjectPlayList" target="_blank" rel="noopener noreferrer">ProjectPlayList</a>) </p>
 									
 									<!-- Slideshow container -->
 									<div class="slideshow-container" id="screenshot">
@@ -98,17 +99,15 @@
 									<p>But... there was a small problem. Since this was just a personal tool (and I was feeling a bit lazy XD), I hardcoded the credential key in the program. It wasn't a big problem when I just used it personally — until I decided to showcase this project (like putting it on my resume, this website, etc...). Put a sensitive key in the code didn't seem like a good idea and it's also not a good coding habit in terms of security. </p>
 									
 									<h3>Website Version</h3>
-									<p>When I started building this website, I thought it'd be great if users can run this program online! Then, I moved user input from terminal command line to a simple HTML form. Behind the scenes, I added Flask in the Python program and runs it as a backend program which processes the input from the frontend and returns the results. Since GitHub Pages doesn't support backend services, that got me thinking about deploy a backend server separately. I did some research and finally decided to use Google Cloud Run to host my backend server. </p>
+									<p>When I started building this website, I thought it'd be great if users can run this program online! Then, I moved user input from terminal command line to a simple HTML form. Behind the scenes, I added Flask in the Python program and runs it as a backend program which processes the input from the frontend and returns the results. Since GitHub Pages doesn't support backend services, that got me thinking about deploy a backend server separately. I did some research and finally decided to use <a href="https://cloud.google.com/run?hl=en" target="_blank" rel="noopener noreferrer">Google Cloud Run</a> to host my backend server. </p>
 									<p>It took me some time to deploy the backend server. Once I connected the frontend with the backend, submited the form will opened a new tab with the results, which was great — but I thought it'd be nicer to just show the results in the same page by adding some extra divs in HTML! </p>
 									<p>That's where the <a href="https://developer.mozilla.org/en-US/docs/Web/HTTP/Guides/CORS" target="_blank" rel="noopener noreferrer">Cross-Origin Resource Sharing (CORS)</a> problem showed up. The browser blocked HTTP requests from different origin for security, that's why I can't modify the frontend page after receiving data from the backend. After I followed the <a href="https://cloud.google.com/run/docs/write-http-functions#handling_cors_cors_support" target="_blank" rel="noopener noreferrer">Google Cloud Run Guide: handling CORS support</a> to edit the headers manually both in frontend and backend, the results returned directly to the frontend page! </p>
-									<p>After that, I adjusted some CSS to make the results look better. When I improved the interface, I inspired by the slideshow javascript I used in another project page! I modified it to handle the pagination so that user can switch between result pages without reloading this project page. </p>
+									<p>After that, I adjusted some CSS to make the results look better. When I improved the interface, I inspired by the <code>slideshow.js</code> that I used in <a href="mod.html" target="_blank">the mod project page</a>! I modified and created a new javascript file that called <code>pageshow.js</code> to handle the pagination so that user can switch between result pages without reloading the current page. </p>
 									
 									<h3>Security Problem</h3>
-									<p>Like I mentioned earlier, I had to make sure the API key wasn't exposed in the code. To fix that, I deleted my old key, created a new one and hid it as an environment variable in the backend, so users can't see or access it directly from the browser! I also added some basic input validation for the form. For example, the number of top videos only accepts numbers. </p>
+									<p>Like I mentioned earlier, I had to make sure the API key wasn't exposed in the code. To fix that, I deleted my old key, created a new one and hid it as an environment variable in the backend, so users can't see or access it directly from the browser or the project repository! I also added some basic input validation for the form, such as restricting the "number of top videos" field to numeric input, and checking for special characters when printing out user input. Even so, I think there are still a few ways the security can be improved, like adding more input validation for the playlist id and updating the headers to only allow requests from specific origins. </p>
 									
-									<h3>Future Plans (Maybe)</h3>
-									
-									<p>Github Respository Link: <a href="https://github.com/GraceLanBM/ProjectPlayList" target="_blank" rel="noopener noreferrer">ProjectPlayList</a></p>
+									<p>GitHub Repositories: <a href="https://github.com/GraceLanBM/ProjectPlayList" target="_blank" rel="noopener noreferrer">ProjectPlayList</a>, <a href="https://github.com/GraceLanBM/GraceLanBM.github.io" target="_blank" rel="noopener noreferrer">GraceLanBM.github.io</a></p>
 									
 									<!-- User input -->
 									<h3>Form</h3>
@@ -168,6 +167,7 @@
                                             
                                             <!-- Handle no result -->
                                             if (result[0]["totalResults"] == 0) {
+												<!-- Replace special characters in user input -->
 												var userInput = specialChars(result[0]["plid"]);
                                                 document.getElementById("result-container").innerHTML = "<h3>No Results: </h3><p><b>Playlist: </b><code>" + userInput + "</code> doesn't exist! Please check you entered the correct playlist id ;w;</p><div class='myPages fade'></div>";
                                                 <!-- Add pagination buttons -->
