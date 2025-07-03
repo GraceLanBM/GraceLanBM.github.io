@@ -102,7 +102,18 @@
 									<p>When I started building this website, I thought it'd be great if users can run this program online! Then, I moved user input from terminal command line to a simple HTML form. Behind the scenes, I added Flask in the Python program and runs it as a backend program which processes the input from the frontend and returns the results. Since GitHub Pages doesn't support backend services, that got me thinking about deploy a backend server separately. I did some research and finally decided to use <a href="https://cloud.google.com/run?hl=en" target="_blank" rel="noopener noreferrer">Google Cloud Run</a> to host my backend server. </p>
 									<p>It took me some time to deploy the backend server. Once I connected the frontend with the backend, submitting the form opened a new tab with the results, which was great — but I thought it'd be nicer to just show the results in the same page by adding some extra divs in HTML! </p>
 									<p>That's where the <a href="https://developer.mozilla.org/en-US/docs/Web/HTTP/Guides/CORS" target="_blank" rel="noopener noreferrer">Cross-Origin Resource Sharing (CORS)</a> problem showed up. The browser blocked HTTP requests from different origin for security, that's why I can't modify the frontend page after receiving data from the backend. After I followed the <a href="https://cloud.google.com/run/docs/write-http-functions#handling_cors_cors_support" target="_blank" rel="noopener noreferrer">Google Cloud Run Guide: handling CORS support</a> to edit the headers manually both in frontend and backend, the results returned directly to the frontend page! </p>
-									<p>After that, I adjusted some CSS to make the results look better. When I improved the interface, I inspired by the <code>slideshow.js</code> that I used in <a href="mod.html" target="_blank">the mod project page</a>! I modified and created a new javascript file that called <code>pageshow.js</code> to handle the pagination so that user can switch between result pages without reloading the current page. </p>
+									<p>After that, I adjusted some CSS to make the results look better. When I improved the interface, I inspired by the <code>slideshow.js</code> that I used in <a href="mod.html" target="_blank">the mod project page</a>! I modified and created a new javascript file that called <code>pageshow.js</code> to handle the pagination so that user can switch between result pages without reloading the current page. The following video showcase the website version, and you can also try it yourself using the form below! </p>
+									
+									<!-- Slideshow container -->
+									<div class="slideshow-container" id="screenshot">
+									
+										<!-- Video -->
+										<video width="1440" height="792" controls muted>
+											<source src="images/playlist/demo_webversion.mov" type="video/mp4">
+											Playlist Demo (Website Version)
+										</video>
+
+									</div>
 									
 									<h3>Security Problem</h3>
 									<p>Like I mentioned earlier, I had to make sure the API key wasn't exposed in the code. To fix that, I deleted my old key, created a new one and hid it as an environment variable in the backend, so users can't see or access it directly from the browser or the project repository! I also added some basic input validation for the form, such as restricting the "number of top videos" field to numeric input, and checking for special characters when printing out user input. Even so, I think there are still a few ways the security can be improved, like adding more input validation for the playlist id and updating the headers to only allow requests from specific origins. </p>
