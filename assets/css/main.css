@@ -2311,7 +2311,8 @@ video {
     border-bottom: 0;
     color: inherit;
     font-family: "Roboto Slab", serif;
-    font-size: 1.125em; }
+    font-size: 1.125em; 
+    place-content: end; }
   #header .icons {
     text-align: right; }
   @media screen and (max-width: 1680px) {
@@ -2494,3 +2495,13 @@ video {
     border-top: 0;
     margin-top: 0;
     padding-top: 0; }
+
+/* Language content */
+/* default */
+.lang en {
+    display: block;
+}
+.lang zh {
+    display: none;
+}
+	

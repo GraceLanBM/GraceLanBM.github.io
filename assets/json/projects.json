@@ -18,27 +18,27 @@
 		"url": "alchemy.html", 
 		"tag": ["Java", "Game"], 
 		"screenshot": [], 
-		"description": "This is alchemy pot description"
+		"description": "Alchemy Pot Description. "
 	}, 
 	{
 		"projectName": "Emotion Recognition", 
 		"url": "emotion.html", 
 		"tag": ["Python", "NLP"], 
 		"screenshot": [], 
-		"description": "This is playlist ranker description"
+		"description": "Emotion Recognition Description. "
 	}, 
 	{
 		"projectName": "QuadSense",
 		"url": "quadsense.html",
 		"tag": ["Godot", "Python", "Game Jam"],
 		"screenshot": [],
-		"description": ""
+		"description": "A Game Jam Project. "
 	}, 
 	{
 		"projectName": "Library Management System",
 		"url": "library.html",
 		"tag": ["HTML", "CSS", "PHP", "MySQL"],
 		"screenshot": [],
-		"description": ""
+		"description": "A course project. "
 	}
 ]
