@@ -15,14 +15,16 @@
 		<!-- for font awesome icon -->
 		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 		<!-- for sidebar -->
-		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>	
+		<!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script> -->	
 		<!-- for zh -->
 		<script src="https://cdn.bootcss.com/jquery/3.7.1/jquery.min.js"></script>	
+        <!-- load projects' names -->
 		<script>
 			$(document).ready(function() {	
 				$.getJSON("assets/json/projects.json", function(data) {
 					$.each(data, function(index, pj) {
-						$("#pjs").append("<li><a href='"+pj.url+"'>"+pj.projectName+"</a></li>");
+						$("#pjsen").append("<li><a href='"+pj.url+"'>"+pj.projectName[0]+"</a></li>");
+                        $("#pjszh").append("<li><a href='"+pj.url+"'>"+pj.projectName[1]+"</a></li>");
 					});
 				});
 			});
@@ -39,33 +41,33 @@
 
 							<!-- Header -->
 								<header id="header">
-									<div class="lang en">
+									<div class="langen">
 									<a href="index.html" class="logo"><strong>About Me</strong></a>
 									</div>
-									<div class="lang zh">
+									<div class="langzh">
 									<a href="index.html" class="logo"><strong>关于我</strong></a>
 									</div>
 									<ul class="pagination" style="text-align:end">
-										<li><a href="javascript:language('en');" class="page" id="btn en">English</a></li>
-										<li><a href="javascript:language('zh');" class="page" id="btn zh">中文</a></li>
+										<li><a href="javascript:language('en');" class="page" id="btnen">English</a></li>
+										<li><a href="javascript:language('zh');" class="page" id="btnzh">中文</a></li>
 									</ul>
 								</header>
 
 							<!-- Banner -->
 								<section id="banner">
 									<div class="content">
-										<div class="lang en">
+										<div class="langen">
 										<header>
 											<h1>Hey, <br />I’m Grace Lan!</h1>
 										</header>
 										<p>I'm a programmer who enjoys turning ideas into code — whether it's building something useful or just experimenting for fun! I’m always curious about how new technologies can improve our lives! Welcome to my little corner of the internet and feel free to explore some of my projects! If you're working on something interesting or just want to connect, feel free to reach out! :D </p>
 										</div>
 										
-										<div class="lang zh">
+										<div class="langzh">
 										<header>
 											<h1>嗨，<br />我是蓝天寒！</h1>
 										</header>
-										<p>我是位享受把自己的各种想法变为程序的程序员！我对各种新技术感到好奇，喜欢思考这些新技术能怎样改变我们的生活！欢迎来到我在互联网上的这个小角落，你可以自由的看看我的一些个人项目！如果你正在做什么有趣的东西或者就是想认识一下，欢迎通过下面的方式联络我！:D </p>
+										<p>我是位程序员，享受把自己的各种想法变为程序！我对各种新技术感到好奇，喜欢思考这些新技术能怎样改变我们的生活！欢迎来到我在互联网上的这个小角落，你可以自由的看看我的一些个人项目！如果你正在做什么有趣的东西或者就是想认识一下，欢迎通过下面的方式联络我！:D </p>
 										</div>
 										
 										<ul class="icons">
@@ -89,30 +91,59 @@
 							<!-- Search -->
 								<section id="search" class="alt">
 									<form method="get" action="search.html">
-										<input type="text" name="tag" id="query" placeholder="Search" />
+                                        <div class="langen">
+										<input type="text" name="tag" id="query en" placeholder="Search" />
+                                        </div>
+                                        <div class="langzh">
+                                        <input type="text" name="tag" id="query zh" placeholder="搜索" />
+                                        </div>
 									</form>
 								</section>
 					
 							<!-- Menu -->
-								<nav id="menu">
+                            <div class="langen">
+                                <nav id="menu">
 									<header class="major">
 										<h2>Menu</h2>
 									</header>
 									<ul>
 										<li><a href="index.html">Home</a></li>
 										<li><span class="opener">Projects</span>
-											<ul id="pjs"></ul>
+											<ul id="pjsen"></ul>
 										</li>
-										
 										<li><a href="interests.html">Interests</a></li>
 									</ul>
-								</nav>
-					
+                                </nav>
+                            </div>
+                                
+                            <div class="langzh">
+                                <nav id="menuzh">
+                                    <header class="major">
+										<h2>菜单</h2>
+									</header>
+									<ul>
+										<li><a href="index.html">首页</a></li>
+										<li><span class="opener">项目</span>
+											<ul id="pjszh"></ul>
+										</li>
+										<li><a href="interests.html">兴趣爱好</a></li>
+									</ul>
+                                </nav>
+                            </div>
+                                	
 							<!-- Section -->
 								<section>
+                                    <div class="langen">
 									<header class="major">
 										<h2>Get in touch !</h2>
 									</header>
+                                    </div>
+                                    
+                                    <div class="langzh">
+									<header class="major">
+										<h2>联系方式</h2>
+									</header>
+                                    </div>
 									
 									<ul class="contact">
 										<li class="icon brands fa-github-square"><a href="https://github.com/GraceLanBM" target="_blank" rel="noopener noreferrer">GraceLanBM</a></li>

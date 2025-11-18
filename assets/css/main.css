@@ -2498,10 +2498,10 @@ video {
 
 /* Language content */
 /* default */
-.lang en {
+.langen {
     display: block;
 }
-.lang zh {
+.langzh {
     display: none;
 }
 	

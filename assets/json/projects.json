@@ -1,41 +1,41 @@
 [
 	{
-		"projectName": "Characters Mod for Idol Manager", 
-		"url": "mod.html", 
-		"tag": ["JavaScript", "Mod"], 
-		"screenshot": ["idols.png", "audition.png", "dress1.png", "dress2.png",  "leoneed.png", "single.png"],
+		"projectName": [ "Characters Mod for Idol Manager", "游戏角色模组" ],
+		"url": "mod.html",
+		"tag": [ "JavaScript", "Mod" ],
+		"screenshot": [ "idols.png", "audition.png", "dress1.png", "dress2.png", "leoneed.png", "single.png" ],
 		"description": "Designed and developed a custom mod using JavaScript for a game called Idol Manager — because I want to play some Project Sekai characters in this game! :D After read their mod documentation guide and playing with the game assets, I added 35 characters and created this mod. It ended up getting some love and subscribed by 670 users around the world! "
-	}, 
+	},
 	{
-		"projectName": "YouTube Playlist Ranker", 
-		"url": "playlist.html", 
-		"tag": ["Python", "API", "Backend", "Google Cloud Run"], 
-		"screenshot": ["demo_screenshot.png"], 
+		"projectName": [ "YouTube Playlist Ranker", "YouTube播放列表排名程序" ],
+		"url": "playlist.html",
+		"tag": [ "Python", "API", "Backend", "Google Cloud Run" ],
+		"screenshot": [ "demo_screenshot.png" ],
 		"description": "This project started as a Python program that used the YouTube API to rank videos based on their view count. After that, I moved the program to the backend, so now you can simply submit the playlist ID through a website form and get the results right on your screen! "
-	}, 
+	},
 	{
-		"projectName": "Alchemy Pot (still mixing...)", 
-		"url": "alchemy.html", 
-		"tag": ["Java", "Game"], 
-		"screenshot": [], 
+		"projectName": [ "Alchemy Pot (still mixing...)", "炼金壶桌面小游戏（搅拌中...）" ],
+		"url": "alchemy.html",
+		"tag": [ "Java", "Game" ],
+		"screenshot": [],
 		"description": "Alchemy Pot Description. "
-	}, 
+	},
 	{
-		"projectName": "Emotion Recognition", 
+		"projectName": [ "Emotion Recognition", "推文情绪识别程序" ], 
 		"url": "emotion.html", 
 		"tag": ["Python", "NLP"], 
 		"screenshot": [], 
 		"description": "Emotion Recognition Description. "
 	}, 
 	{
-		"projectName": "QuadSense",
+		"projectName": [ "QuadSense", "四觉" ],
 		"url": "quadsense.html",
 		"tag": ["Godot", "Python", "Game Jam"],
 		"screenshot": [],
 		"description": "A Game Jam Project. "
 	}, 
 	{
-		"projectName": "Library Management System",
+		"projectName": [ "Library Management System", "图书馆管理系统" ],
 		"url": "library.html",
 		"tag": ["HTML", "CSS", "PHP", "MySQL"],
 		"screenshot": [],

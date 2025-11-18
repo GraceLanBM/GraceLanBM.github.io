@@ -6,36 +6,41 @@ let lang = "en";
 language(lang);
 
 function language(n) {
-	var show = "lang " + n;
-	var hide = "lang ";
-	var showid = "btn " + n;
-	var hideid = "btn ";
+	let show = n;
+    let hide = "";
 	
 	if (n == "en") {
-		hide += "zh";
-		hideid += "zh";
+		hide = "zh";
 		
 	} else if (n == "zh") {
-		hide += "en";
-		hideid += "en";
+		hide = "en";
 	}
   
   	// hide contents
-	var hideContents = document.getElementsByClassName(hide);
+	let hideContents = document.getElementsByClassName("lang"+hide);
 	for (j = 0; j < hideContents.length; j++) {
 		hideContents[j].style.display = "none";
 	} 
 	
 	// display contents
-	var displayContents = document.getElementsByClassName(show);
+	let displayContents = document.getElementsByClassName("lang"+show);
 	for (i = 0; i < displayContents.length; i++) {
 		displayContents[i].style.display = "block";
 	}
+    
+    // change menu id
+    let hideMenu = document.getElementById("menu"+hide);
+    // avoid change id when multiple click the same language
+    if (hideMenu == null) {
+        let showMenu = document.getElementById("menu"+show);
+        hideMenu = document.getElementById("menu");
+        hideMenu.id = "menu" + hide;
+        showMenu.id = "menu";
+    }
 	
-	// deactive button
-	var hidebtn = document.getElementById(hideid);
+	// change buttons colour to show the current language
+	let hidebtn = document.getElementById("btn"+hide);
 	hidebtn.className = hidebtn.className.replace(" active", "");
-	var showbtn = document.getElementById(showid);
-	showbtn.className += " active";
-
+	let showbtn = document.getElementById("btn"+show);
+    showbtn.className += " active";
 }
