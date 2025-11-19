@@ -21,7 +21,7 @@
 				$.getJSON("assets/json/projects.json", function(data) {
 					$.each(data, function(index, pj) {
 						<!-- Add project link & list to the sidebar -->
-						$("#pjs").append("<li><a href='"+pj.url+"'>"+pj.projectName+"</a></li>");
+						$("#pjs").append("<li><a href='"+pj.url+"'>"+pj.projectName[0]+"</a></li>");
 					});
 				});
 			});
