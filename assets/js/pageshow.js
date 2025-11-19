@@ -36,8 +36,8 @@ function showPages(n) {
         pages[i].style.display = "none";
     }
     for (i = 0; i < pageNumbers.length; i++) {
-        pageNumbers[i].className = pageNumbers[i].className.replace(" active", "");
+        pageNumbers[i].classList.remove("active");
     }
     pages[pageIndex-1].style.display = "block";
-    pageNumbers[pageIndex-1].className += " active";
+    pageNumbers[pageIndex-1].classList.add("active");
 }

@@ -27,20 +27,10 @@ function language(n) {
 	for (i = 0; i < displayContents.length; i++) {
 		displayContents[i].style.display = "block";
 	}
-    
-    // change menu id
-    let hideMenu = document.getElementById("menu"+hide);
-    // avoid change id when multiple click the same language
-    if (hideMenu == null) {
-        let showMenu = document.getElementById("menu"+show);
-        hideMenu = document.getElementById("menu");
-        hideMenu.id = "menu" + hide;
-        showMenu.id = "menu";
-    }
 	
 	// change buttons colour to show the current language
 	let hidebtn = document.getElementById("btn"+hide);
-	hidebtn.className = hidebtn.className.replace(" active", "");
+    hidebtn.classList.remove("active");
 	let showbtn = document.getElementById("btn"+show);
-    showbtn.className += " active";
+    showbtn.classList.add("active");
 }
