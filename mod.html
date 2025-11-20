@@ -23,7 +23,8 @@
 				$.getJSON("assets/json/projects.json", function(data) {
 					$.each(data, function(index, pj) {
 						<!-- Add project link & list to the sidebar -->
-						$("#pjs").append("<li><a href='"+pj.url+"'>"+pj.projectName[0]+"</a></li>");
+						$("#pjsen").append("<li><a href='"+pj.url+"#en'>"+pj.projectName[0]+"</a></li>");
+						$("#pjszh").append("<li><a href='"+pj.url+"#zh'>"+pj.projectName[1]+"</a></li>");
 					});
 				});
 			});
@@ -40,14 +41,30 @@
 
 							<!-- Header -->
 								<header id="header">
-									<a href="mod.html" class="logo"><Strong>Characters Mod for Idol Manager</Strong></a>
+									<div class="langen">
+									<a href="mod.html#en" class="logo"><Strong>Characters Mod for Idol Manager</Strong></a>
+									</div>
+									<div class="langzh">
+									<a href="mod.html#zh" class="logo"><strong>《偶像经理人》角色模组</strong></a>
+									</div>
+									<ul class="pagination" style="text-align:end">
+										<li><a href="javascript:language('en');" class="page" id="btnen">English</a></li>
+										<li><a href="javascript:language('zh');" class="page" id="btnzh">中文</a></li>
+									</ul>
 								</header>
 
 							<!-- Content -->
 								<section>
+									<div class="langen">
 									<header class="main">
 										<h1>Characters Mod for Idol Manager</h1>
 									</header>
+									</div>
+									<div class="langzh">
+									<header class="main">
+										<h1>《偶像经理人》角色模组</h1>
+									</header>
+									</div>
 
 									<!-- Load data from json file -->
 									<script>
@@ -122,6 +139,7 @@
 									
 									<br>
 									<!-- Project description -->
+									<div class="langen">
 									<h3>How I Started</h3>
 									<p>This project started because I saw there were plenty of character mods in the Steam Workshop for Idol Manager, but none of them included Project Sekai characters. Especially at that time, these characters had some new illustrations, and I wanted to include both the old and new versions! </p>
 									
@@ -137,8 +155,27 @@
 									
 									<h3>Future Plans (Maybe)</h3>
 									<p>I haven't touched the mod in a while, and I don't think I'll have time to update it anytime soon — but I've still got a few ideas about it! Maybe give the characters some custom events, etc... </p>
+									</div>
 									
+									<div class="langzh">
+									<h3>开始</h3>
+									<p>这个项目起源于我玩《偶像经理人》，在几十个小时后，我开始在创意工坊看看有什么角色模组以给游戏带来点新鲜感！在看到一众偶像类音乐游戏的角色时，我想起了世界计划这款手机音游。我本身就很喜欢miku，歌单里也有不少Vocaloid的歌，自然也在世界计划上线时就玩了。总之，在创意工坊我没找到能用的模组，在加上当时这些角色又有了新立绘！我就想，那干嘛不自己做一个呢？</p>
+									
+									<h3>制作模组</h3>
+									<p>说干就干，我先在网上搜索了一下，在itch.io上找到了《偶像经理人》官方给出的<a href="https://docs.google.com/document/d/15vAJ-VFSL1jmOnoM4_M9C63RM-08kKtKyzo6-t3amV0/edit?usp=drive_link" target="_blank" rel="noopener noreferrer">Idol Manager editor guide（Google文档）</a>！里面详细的解释了角色文件的位置和JSON文件里各参数变量等信息！跟着文档，我找到了相应位置，又下载了一些其他角色模组的文件来参考。在了解游戏的各种资产文件后，我又试着修改了各种文件和里面的参数，然后去游戏中看相应的改变。来回玩了几回之后，我觉得了解的差不多了，就开始正式写我想做的角色模组了！</p>
+									<p>当然，自己写个模组出来这种事肯定不可能一帆风顺。其中让我花了最长时间的bug不是卡代码，而是需要用Photoshop改图！在写完JSON文件并将角色立绘图放进相应文件夹位置后，我打开游戏测试，就发现了这个bug。角色图显示很正常，在正中间，但在半身图和头像图上却有偏左或偏右等问题。我检查了角色文件里写的参数，又调整测试了一下，发现半身图和头像图都是游戏运行时从立绘图片中自动裁剪的。那么要保证这两种图片裁剪到正确的位置，就需要调整设置裁剪的参数适用于不同的图片！但因为每个立绘的头部位置都不太一样，而同一个角色只能设置一个头部位置参数，为了让同一个角色在切换不同立绘后的头像处在正确位置，我只好用Photoshop自己调整角色图片，尽量让两个立绘的头部在同一位置。最后，在细致的调整后，游戏裁剪的半身图和头像都正确的切到了正确的位置了！</p>
+									
+									<h3>多种语言支持</h3>
+									<p>因为世界计划这款游戏本身就有日服、美服以及台服（现在也出了国服！），所以我又做了英文和日文的版本！虽然多了点工作量，但发布后看到各个地区加起来有1000多名玩家的订阅，想到大家也许是和我一样的喜欢这些角色的粉丝，就觉得很开心QwQ！</p>
+
+									<p>Steam创意工坊链接: <a href="https://steamcommunity.com/sharedfiles/filedetails/?id=3324673768" target="_blank" rel="noopener noreferrer">英文版本</a>, <a href="https://steamcommunity.com/sharedfiles/filedetails/?id=3323565583" target="_blank" rel="noopener noreferrer">中文版本</a>, <a href="https://steamcommunity.com/sharedfiles/filedetails/?id=3324624091" target="_blank" rel="noopener noreferrer">日文版本</a>
+									</p>
+									
+									<h3>未来计划（不是那个3DS的游戏！XD）</h3>
+									<p>我有段时间没玩这个游戏了，也暂时没有更新这个模组的计划。不过未来有时间的话，可能还想增加点角色的剧情之类的……</p>
+									</div>
 									<br>
+									
 									<!-- Tag -->
 									<div id="tag">
 									<!-- Example
@@ -155,31 +192,59 @@
 
 							<!-- Search -->
 								<section id="search" class="alt">
-									<form method="get" action="search.html">
-										<input type="text" name="tag" id="query" placeholder="Search" />
-									</form>
+									<div class="langen">
+										<input type="text" name="tag" id="queryen" placeholder="Search" />
+                                        </div>
+                                        <div class="langzh">
+                                        <input type="text" name="tag" id="queryzh" placeholder="搜索" />
+                                        </div>
 								</section>
 					
 							<!-- Menu -->
-								<nav class="menu">
+							<div class="langen">
+                                <nav class="menu">
 									<header class="major">
 										<h2>Menu</h2>
 									</header>
 									<ul>
-										<li><a href="index.html">Home</a></li>
+										<li><a href="index.html#en">Home</a></li>
 										<li><span class="opener">Projects</span>
-											<ul id="pjs"></ul>
+											<ul id="pjsen"></ul>
 										</li>
-										
-										<li><a href="interests.html">Interests</a></li>
+										<li><a href="interests.html#en">Interests</a></li>
 									</ul>
-								</nav>
-					
+                                </nav>
+                            </div>
+                                
+                            <div class="langzh">
+                                <nav class="menu">
+                                    <header class="major">
+										<h2>菜单</h2>
+									</header>
+									<ul>
+										<li><a href="index.html#zh">首页</a></li>
+										<li><span class="opener">项目</span>
+											<ul id="pjszh"></ul>
+										</li>
+										<li><a href="interests.html#zh">兴趣爱好</a></li>
+									</ul>
+                                </nav>
+                            </div>
+                            
 							<!-- Section -->
 								<section>
+									<div class="langen">
 									<header class="major">
 										<h2>Get in touch !</h2>
 									</header>
+                                    </div>
+                                    
+                                    <div class="langzh">
+									<header class="major">
+										<h2>联系方式</h2>
+									</header>
+                                    </div>
+                                    
 									<ul class="contact">
 										<li class="icon brands fa-github-square"><a href="https://github.com/GraceLanBM" target="_blank" rel="noopener noreferrer">GraceLanBM</a></li>
 										<li class="icon brands fa-linkedin-square"><a href="https://www.linkedin.com/in/grace-lan-8b763a239" target="_blank" rel="noopener noreferrer">Grace Lan</a></li>
@@ -202,6 +267,7 @@
 			<script src="assets/js/breakpoints.min.js"></script>
 			<script src="assets/js/util.js"></script>
 			<script src="assets/js/main.js"></script>
+			<script src="assets/js/translate.js"></script>
 
 	</body>
 </html>
