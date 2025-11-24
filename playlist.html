@@ -22,7 +22,8 @@
 				$.getJSON("assets/json/projects.json", function(data) {
 					$.each(data, function(index, pj) {
 						<!-- Add project link & list to the sidebar -->
-						$("#pjs").append("<li><a href='"+pj.url+"'>"+pj.projectName[0]+"</a></li>");
+						$("#pjsen").append("<li><a href='"+pj.url+"#en'>"+pj.projectName[0]+"</a></li>");
+						$("#pjszh").append("<li><a href='"+pj.url+"#zh'>"+pj.projectName[1]+"</a></li>");
 					});
 				});
 			});
@@ -39,14 +40,30 @@
 
 							<!-- Header -->
 								<header id="header">
-									<a href="playlist.html" class="logo"><Strong>YouTube Playlist Ranker</Strong></a>
-								</header>
+                                <div class="langen"
+									<a href="playlist.html#en" class="logo"><Strong>YouTube Playlist Ranker</Strong></a>
+								</div>
+                                <div class="langzh">
+									<a href="playlist.html#zh" class="logo"><strong>YouTube播放列表排名程序</strong></a>
+									</div>
+									<ul class="pagination" style="text-align:end">
+										<li><a href="javascript:language('en');" class="page" id="btnen">English</a></li>
+										<li><a href="javascript:language('zh');" class="page" id="btnzh">中文</a></li>
+									</ul>
+                                </header>
 
 							<!-- Content -->
 								<section>
+                                    <div class="langen">
 									<header class="main">
 										<h1>YouTube Playlist Ranker</h1>
 									</header>
+                                    </div>
+                                    <div class="langzh">
+                                    <header class="main">
+                                        <h1>YouTube播放列表排名程序</h1>
+                                    </header>
+                                    </div>
 									
 									<!-- Load data from json file -->
 									<script>
@@ -77,12 +94,23 @@
 									</script>
 
 									<!-- Project description -->
+                                    <div class="langen">
 									<h3>How I Started</h3>
 									<p>This project began with a simple personal curiosity: rank videos by views in a specific playlist! With over 100 videos, it's hard to count their views manually — so I decided to write a Python program for this mission! </p>
 									<p>In the very first version, I used BeautifulSoup library which can request websites and search for the specific class to determine the views. However, it can't scroll to load more videos in the playlist. So I switched to use Selenium which can open a real web browser and lets me control it. It can scroll and load more content — success! Well, then the another problem came out: YouTube's ads! Since Selenium can't skip the ads, the data extraction gets interrupted when the ads came up. After that, I did some research online and discovered the <a href="https://developers.google.com/youtube/v3" target="_blank" rel="noopener noreferrer">YouTube API</a>, which is a much cleaner and more reliable way to get the data from YouTube! </p>
 									
 									<h3>A Python Program with <a href="https://developers.google.com/youtube/v3" target="_blank" rel="noopener noreferrer">YouTube API</a></h3>
 									<p>The good news is that the <a href="https://developers.google.com/youtube/v3" target="_blank" rel="noopener noreferrer">YouTube API</a> has a clean and helpful guide! I created a credential key and got everything set up by simply following the guide. The second version of my Python program runs great, and I also added a progress bar to display the process. (The video below shows what it looks like when running in terminal! You can also find it as <code>playlist_api.py</code> in the GitHub repository: <a href="https://github.com/GraceLanBM/ProjectPlayList" target="_blank" rel="noopener noreferrer">ProjectPlayList</a>) </p>
+                                    </div>
+                                    
+                                    <div class="langzh">
+									<h3>开始</h3>
+									<p>这个项目的开始很简单：我想知道Youtube上一个播放列表内视频的播放数排名！这个播放列表有超过100个视频，所以很难自己一个个在Excel里记录播放数然后排名（虽然我确实做过这种事但其他列表没这么多视频XD），总之我觉得写个程序来做会比较方便，于是这个项目就这么开始了:D！</p>
+									<p>In the very first version, I used BeautifulSoup library which can request websites and search for the specific class to determine the views. However, it can't scroll to load more videos in the playlist. So I switched to use Selenium which can open a real web browser and lets me control it. It can scroll and load more content — success! Well, then the another problem came out: YouTube's ads! Since Selenium can't skip the ads, the data extraction gets interrupted when the ads came up. After that, I did some research online and discovered the <a href="https://developers.google.com/youtube/v3" target="_blank" rel="noopener noreferrer">YouTube API</a>, which is a much cleaner and more reliable way to get the data from YouTube! </p>
+									
+									<h3>A Python Program with <a href="https://developers.google.com/youtube/v3" target="_blank" rel="noopener noreferrer">YouTube API</a></h3>
+									<p>The good news is that the <a href="https://developers.google.com/youtube/v3" target="_blank" rel="noopener noreferrer">YouTube API</a> has a clean and helpful guide! I created a credential key and got everything set up by simply following the guide. The second version of my Python program runs great, and I also added a progress bar to display the process. (The video below shows what it looks like when running in terminal! You can also find it as <code>playlist_api.py</code> in the GitHub repository: <a href="https://github.com/GraceLanBM/ProjectPlayList" target="_blank" rel="noopener noreferrer">ProjectPlayList</a>) </p>
+                                    </div>
 									
 									<!-- Slideshow container -->
 									<div class="slideshow-container" id="screenshot">
@@ -266,30 +294,60 @@
 							<!-- Search -->
 								<section id="search" class="alt">
 									<form method="get" action="search.html">
-										<input type="text" name="tag" id="query" placeholder="Search" />
+                                        <div class="langen">
+										<input type="text" name="tag" id="queryen" placeholder="Search" />
+                                        </div>
+                                        <div class="langzh">
+                                        <input type="text" name="tag" id="queryzh" placeholder="搜索" />
+                                        </div>
 									</form>
 								</section>
 					
 							<!-- Menu -->
-								<nav class="menu">
+                            <div class="langen">
+                                <nav class="menu">
 									<header class="major">
 										<h2>Menu</h2>
 									</header>
 									<ul>
-										<li><a href="index.html">Home</a></li>
+										<li><a href="index.html#en">Home</a></li>
 										<li><span class="opener">Projects</span>
-											<ul id="pjs"></ul>
+											<ul id="pjsen"></ul>
 										</li>
-										
-										<li><a href="interests.html">Interests</a></li>
+										<li><a href="interests.html#en">Interests</a></li>
 									</ul>
-								</nav>
+                                </nav>
+                            </div>
+                                
+                            <div class="langzh">
+                                <nav class="menu">
+                                    <header class="major">
+										<h2>菜单</h2>
+									</header>
+									<ul>
+										<li><a href="index.html#zh">首页</a></li>
+										<li><span class="opener">项目</span>
+											<ul id="pjszh"></ul>
+										</li>
+										<li><a href="interests.html#zh">兴趣爱好</a></li>
+									</ul>
+                                </nav>
+                            </div>
 					
 							<!-- Section -->
 								<section>
+									<div class="langen">
 									<header class="major">
 										<h2>Get in touch !</h2>
 									</header>
+                                    </div>
+                                    
+                                    <div class="langzh">
+									<header class="major">
+										<h2>联系方式</h2>
+									</header>
+                                    </div>
+                                    
 									<ul class="contact">
 										<li class="icon brands fa-github-square"><a href="https://github.com/GraceLanBM" target="_blank" rel="noopener noreferrer">GraceLanBM</a></li>
 										<li class="icon brands fa-linkedin-square"><a href="https://www.linkedin.com/in/grace-lan-8b763a239" target="_blank" rel="noopener noreferrer">Grace Lan</a></li>
@@ -312,6 +370,7 @@
 			<script src="assets/js/breakpoints.min.js"></script>
 			<script src="assets/js/util.js"></script>
 			<script src="assets/js/main.js"></script>
+            <script src="assets/js/translate.js"></script>
 
 	</body>
 </html>

@@ -21,7 +21,8 @@
 				$.getJSON("assets/json/projects.json", function(data) {
 					$.each(data, function(index, pj) {
 						<!-- Add project link & list to the sidebar -->
-						$("#pjs").append("<li><a href='"+pj.url+"'>"+pj.projectName[0]+"</a></li>");
+						$("#pjsen").append("<li><a href='"+pj.url+"#en'>"+pj.projectName[0]+"</a></li>");
+                        $("#pjszh").append("<li><a href='"+pj.url+"#zh'>"+pj.projectName[1]+"</a></li>");
 					});
 				});
 			});
@@ -148,30 +149,60 @@
 							<!-- Search -->
 								<section id="search" class="alt">
 									<form method="get" action="search.html">
-										<input type="text" name="tag" id="query" placeholder="Search" />
+										<div class="langen">
+										<input type="text" name="tag" id="queryen" placeholder="Search" />
+                                        </div>
+                                        <div class="langzh">
+                                        <input type="text" name="tag" id="queryzh" placeholder="搜索" />
+                                        </div>
 									</form>
 								</section>
 					
 							<!-- Menu -->
-								<nav class="menu">
+							<div class="langen">
+                                <nav class="menu">
 									<header class="major">
 										<h2>Menu</h2>
 									</header>
 									<ul>
-										<li><a href="index.html">Home</a></li>
+										<li><a href="index.html#en">Home</a></li>
 										<li><span class="opener">Projects</span>
-											<ul id="pjs"></ul>
+											<ul id="pjsen"></ul>
 										</li>
-										
-										<li><a href="interests.html">Interests</a></li>
+										<li><a href="interests.html#en">Interests</a></li>
 									</ul>
-								</nav>
+                                </nav>
+                            </div>
+                                
+                            <div class="langzh">
+                                <nav class="menu">
+                                    <header class="major">
+										<h2>菜单</h2>
+									</header>
+									<ul>
+										<li><a href="index.html#zh">首页</a></li>
+										<li><span class="opener">项目</span>
+											<ul id="pjszh"></ul>
+										</li>
+										<li><a href="interests.html#zh">兴趣爱好</a></li>
+									</ul>
+                                </nav>
+                            </div>
 					
 							<!-- Section -->
 								<section>
+									<div class="langen">
 									<header class="major">
 										<h2>Get in touch !</h2>
 									</header>
+                                    </div>
+                                    
+                                    <div class="langzh">
+									<header class="major">
+										<h2>联系方式</h2>
+									</header>
+                                    </div>
+                                    
 									<ul class="contact">
 										<li class="icon brands fa-github-square"><a href="https://github.com/GraceLanBM" target="_blank" rel="noopener noreferrer">GraceLanBM</a></li>
 										<li class="icon brands fa-linkedin-square"><a href="https://www.linkedin.com/in/grace-lan-8b763a239" target="_blank" rel="noopener noreferrer">Grace Lan</a></li>
@@ -194,6 +225,7 @@
 			<script src="assets/js/breakpoints.min.js"></script>
 			<script src="assets/js/util.js"></script>
 			<script src="assets/js/main.js"></script>
+            <script src="assets/js/translate.js"></script>
 
 	</body>
 </html>

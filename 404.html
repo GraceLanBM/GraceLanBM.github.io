@@ -20,7 +20,8 @@
 			$(document).ready(function() {	
 				$.getJSON("assets/json/projects.json", function(data) {
 					$.each(data, function(index, pj) {
-						$("#pjs").append("<li><a href='"+pj.url+"'>"+pj.projectName[0]+"</a></li>");
+						$("#pjsen").append("<li><a href='"+pj.url+"#en'>"+pj.projectName[0]+"</a></li>");
+                        $("#pjszh").append("<li><a href='"+pj.url+"#zh'>"+pj.projectName[1]+"</a></li>");
 					});
 				});
 			});
@@ -37,12 +38,22 @@
 
 							<!-- Header -->
 								<header id="header">
-									<a href="index.html" class="logo"><strong>Error</strong></a>
+                                    <div class="langen">
+									<a href="404.html#en" class="logo"><strong>Error</strong></a>
+                                    </div>
+                                    <div class="langzh">
+									<a href="404.html#zh" class="logo"><strong>错误！</strong></a>
+									</div>
+									<ul class="pagination" style="text-align:end">
+										<li><a href="javascript:language('en');" class="page" id="btnen">English</a></li>
+										<li><a href="javascript:language('zh');" class="page" id="btnzh">中文</a></li>
+									</ul>
 								</header>
 
 							<!-- Banner -->
 								<section id="banner">
 									<div class="content">
+                                        <div class="langen">
 										<header>
 											<h1>Oops, something went wrong!</h1>
 										</header>
@@ -53,6 +64,19 @@
 											<li>Or the link might be broken? </li>
 										</ul>
 										<p>Let me know if you think it's a bug or something, and I'll try to fix it! :D</p>
+                                        </div>
+                                        <div class="langzh">
+										<header>
+											<h1>糟糕，看上去页面出错了！</h1>
+										</header>
+										<p>这个页面有些问题，可能是：</p>
+										<ul>
+											<li>还没做完！</li>
+											<li>可能搜索结果出了些问题？</li>
+											<li>或者链接不对劲？（我正在翻译一些界面，所以也许有些链接没有导向正确的网页？）</li>
+										</ul>
+										<p>如果你觉得不是以上的问题，那欢迎告诉我这个bug！我会尽快修好！:D</p>
+                                        </div>
 										
 										<ul class="icons">
 										<li><a href="https://github.com/GraceLanBM" class="icon brands fa-github-square"><span class="label">Github</span></a></li>
@@ -75,34 +99,64 @@
 							<!-- Search -->
 								<section id="search" class="alt">
 									<form method="get" action="search.html">
-										<input type="text" name="tag" id="query" placeholder="Search" />
+										<div class="langen">
+										<input type="text" name="tag" id="queryen" placeholder="Search" />
+                                        </div>
+                                        <div class="langzh">
+                                        <input type="text" name="tag" id="queryzh" placeholder="搜索" />
+                                        </div>
 									</form>
 								</section>
 					
 							<!-- Menu -->
-								<nav class="menu">
+							<div class="langen">
+                                <nav class="menu">
 									<header class="major">
 										<h2>Menu</h2>
 									</header>
 									<ul>
-										<li><a href="index.html">Home</a></li>
+										<li><a href="index.html#en">Home</a></li>
 										<li><span class="opener">Projects</span>
-											<ul id="pjs"></ul>
+											<ul id="pjsen"></ul>
 										</li>
-										
-										<li><a href="interests.html">Interests</a></li>
+										<li><a href="interests.html#en">Interests</a></li>
 									</ul>
-								</nav>
+                                </nav>
+                            </div>
+                                
+                            <div class="langzh">
+                                <nav class="menu">
+                                    <header class="major">
+										<h2>菜单</h2>
+									</header>
+									<ul>
+										<li><a href="index.html#zh">首页</a></li>
+										<li><span class="opener">项目</span>
+											<ul id="pjszh"></ul>
+										</li>
+										<li><a href="interests.html#zh">兴趣爱好</a></li>
+									</ul>
+                                </nav>
+                            </div>
 					
 							<!-- Section -->
 								<section>
+									<div class="langen">
 									<header class="major">
 										<h2>Get in touch !</h2>
 									</header>
+                                    </div>
+                                    
+                                    <div class="langzh">
+									<header class="major">
+										<h2>联系方式</h2>
+									</header>
+                                    </div>
+                                    
 									<ul class="contact">
 										<li class="icon brands fa-github-square"><a href="https://github.com/GraceLanBM" target="_blank" rel="noopener noreferrer">GraceLanBM</a></li>
 										<li class="icon brands fa-linkedin-square"><a href="https://www.linkedin.com/in/grace-lan-8b763a239" target="_blank" rel="noopener noreferrer">Grace Lan</a></li>
-										<li class="icon solid fa-envelope"><a href="mailto:tianhan.lan@ucalgary.ca" target="_blank" rel="noopener noreferrer">tianhan.lan@ucalgary.ca</a></li>
+										<li class="icon solid fa-envelope"><a href="mailto:tianhan.lan@alumni.ucalgary.ca" target="_blank" rel="noopener noreferrer">tianhan.lan@alumni.ucalgary.ca</a></li>
 									</ul>
 								</section>
 					
@@ -122,6 +176,7 @@
 			<script src="assets/js/breakpoints.min.js"></script>
 			<script src="assets/js/util.js"></script>
 			<script src="assets/js/main.js"></script>
+            <script src="assets/js/translate.js"></script>
 
 	</body>
 </html>
