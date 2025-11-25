@@ -104,13 +104,12 @@
                                     </div>
                                     
                                     <div class="langzh">
-									<h3>开始</h3>
+									<h3>项目的开始</h3>
 									<p>这个项目的开始很简单：我想知道Youtube上一个播放列表内视频的播放数排名！这个播放列表有超过100个视频，所以很难自己一个个在Excel里记录播放数然后排名（虽然我确实做过这种事但其他列表没这么多视频XD），总之我觉得写个程序来做会比较方便，于是这个项目就这么开始了:D！</p>
 									<p>刚开始时，我想着写个爬虫，所以在最初的版本中，我用了Python的BeautifulSoup库来获取网页上的信息，由播放列表页面的各个视频再到视频页面的播放数信息，和手动的逻辑类似。但是播放列表页面并不会全部显示所有视频，而是随着用户下拉时再展开后续视频。为了解决这个问题，我就换成了Selenium库。然而这个问题解决后又出现新的问题：Youtube的广告！Selenium是实际打开一个网页操作，所以无法跳过广告，这大大拖慢了收集信息的速度。这之后，我在网上又寻找了各种解决方法，最后发现了一个更方便、简洁且数据准确的办法——就是Youtube自己的<a href="https://developers.google.com/youtube/v3" target="_blank" rel="noopener noreferrer">API</a>！</p>
 									
 									<h3>一个使用<a href="https://developers.google.com/youtube/v3" target="_blank" rel="noopener noreferrer">YouTube API</a>的Python程序</h3>
-									<p><a href="https://developers.google.com/youtube/v3" target="_blank" rel="noopener noreferrer">YouTube API</a>有非常清楚的文档和各种例子，我很快就上手了！按照文档说明，我先是申请了密钥，然后在Python程序里用密钥和播放列表的id去获取列表里的视频，再用视频id去获取其他比如播放数等数据，最后排序好就搞定了！这个版本运行良好，后来我又给程序增加了一个进度条，这样在列表里视频较多时能比较直观的知道进度！你可以在<code>playlist_api.py</code>这个文件里看到这个版本的源码，而下面这个视频则演示了这个版本的程序运行的样子：
-									 has a clean and helpful guide! I created a credential key and got everything set up by simply following the guide. The second version of my Python program runs great, and I also added a progress bar to display the process. (The video below shows what it looks like when running in terminal! You can also find it as <code>playlist_api.py</code> in the GitHub repository: <a href="https://github.com/GraceLanBM/ProjectPlayList" target="_blank" rel="noopener noreferrer">ProjectPlayList</a>) </p>
+									<p><a href="https://developers.google.com/youtube/v3" target="_blank" rel="noopener noreferrer">YouTube API</a>有非常清楚的文档和各种例子，我很快就上手了！按照文档说明，我先是申请了密钥，然后在Python程序里用密钥和播放列表的id去获取列表里的视频，再用视频id去获取其他比如播放数等数据，最后排序好就搞定了！这个版本运行良好，后来我又给程序增加了一个进度条，这样在列表里视频较多时能比较直观的知道进度！你可以在<a href="https://github.com/GraceLanBM/ProjectPlayList" target="_blank" rel="noopener noreferrer">该项目的GitHub</a>里的<code>playlist_api.py</code>这个文件里看到这个版本的源码。下面这个视频演示了该版本程序运行的样子：</p>
                                     </div>
 									
 									<!-- Slideshow container -->
@@ -125,6 +124,7 @@
 									</div>
 									
 									<br>
+									<div class="langen">
 									<p>But... there was a small problem. Since this was just a personal tool (and I was feeling a bit lazy XD), I hardcoded the credential key in the program. It wasn't a big problem when I just used it personally — until I decided to showcase this project (like putting it on my resume, this website, etc...). Put a sensitive key in the code didn't seem like a good idea and it's also not a good coding habit in terms of security. </p>
 									
 									<h3>Website Version</h3>
@@ -132,6 +132,17 @@
 									<p>It took me some time to deploy the backend server. Once I connected the frontend with the backend, submitting the form opened a new tab with the results, which was great — but I thought it'd be nicer to just show the results in the same page by adding some extra divs in HTML! </p>
 									<p>That's where the <a href="https://developer.mozilla.org/en-US/docs/Web/HTTP/Guides/CORS" target="_blank" rel="noopener noreferrer">Cross-Origin Resource Sharing (CORS)</a> problem showed up. The browser blocked HTTP requests from different origin for security, that's why I can't modify the frontend page after receiving data from the backend. After I followed the <a href="https://cloud.google.com/run/docs/write-http-functions#handling_cors_cors_support" target="_blank" rel="noopener noreferrer">Google Cloud Run Guide: handling CORS support</a> to edit the headers manually both in frontend and backend, the results returned directly to the frontend page! </p>
 									<p>After that, I adjusted some CSS to make the results look better. When I improved the interface, I inspired by the <code>slideshow.js</code> that I used in <a href="mod.html" target="_blank">the mod project page</a>! I modified and created a new javascript file that called <code>pageshow.js</code> to handle the pagination so that user can switch between result pages without reloading the current page. The following video showcase the website version, and you can also try it yourself using the form below! </p>
+									</div>
+									
+									<div class="langzh">
+									<p>但是……这里有个隐藏的问题，因为一开始纯粹是个人兴趣做的，没打算展示出来，为了方便（和偷懒w）所以密钥我就直接写在了程序里。在我打算将这个项目放进简历（和这个网页）时，这个问题就很大了。当然啦，本身将密钥写进明文的代码里也不是个好的习惯！</p>
+									
+									<h3>网页版本</h3>
+									<p>当我开始制作这个网页时，我觉得让大家可以直接在网页上试用应该会更好！我就将前端输入从终端换到了HTML的form。对于原本的Python程序，我将其用Flask和前端链接起来，作为后端程序运行。考虑到GitHub Pages不支持后端，我决定另外再部署一个后端服务器。在经过又一番网络搜索后，我选择了<a href="https://cloud.google.com/run?hl=en" target="_blank" rel="noopener noreferrer">Google Cloud Run</a>来托管后端服务器。</p>
+									<p>部署后端服务器也花了我不少时间，在跟随Google的官方教程成功部署后，由前端网页发送过去的信息经过后端的Python程序处理，在新打开的页面上返回排名后的视频列表的简单版本就完成了！当然，就UI来说肯定不够好，所以我就开始修改后端程序和前端网页，让返回的数据可以显示在同一页面上。</p>
+									<p>That's where the <a href="https://developer.mozilla.org/en-US/docs/Web/HTTP/Guides/CORS" target="_blank" rel="noopener noreferrer">Cross-Origin Resource Sharing (CORS)</a> problem showed up. The browser blocked HTTP requests from different origin for security, that's why I can't modify the frontend page after receiving data from the backend. After I followed the <a href="https://cloud.google.com/run/docs/write-http-functions#handling_cors_cors_support" target="_blank" rel="noopener noreferrer">Google Cloud Run Guide: handling CORS support</a> to edit the headers manually both in frontend and backend, the results returned directly to the frontend page! </p>
+									<p>After that, I adjusted some CSS to make the results look better. When I improved the interface, I inspired by the <code>slideshow.js</code> that I used in <a href="mod.html" target="_blank">the mod project page</a>! I modified and created a new javascript file that called <code>pageshow.js</code> to handle the pagination so that user can switch between result pages without reloading the current page. The following video showcase the website version, and you can also try it yourself using the form below! </p>
+									</div>
 									
 									<!-- Slideshow container -->
 									<div class="slideshow-container" id="screenshot">
