@@ -140,8 +140,8 @@
 									<h3>网页版本</h3>
 									<p>当我开始制作这个网页时，我觉得让大家可以直接在网页上试用应该会更好！我就将前端输入从终端换到了HTML的form。对于原本的Python程序，我将其用Flask和前端链接起来，作为后端程序运行。考虑到GitHub Pages不支持后端，我决定另外再部署一个后端服务器。在经过又一番网络搜索后，我选择了<a href="https://cloud.google.com/run?hl=en" target="_blank" rel="noopener noreferrer">Google Cloud Run</a>来托管后端服务器。</p>
 									<p>部署后端服务器也花了我不少时间，在跟随Google的官方教程成功部署后，由前端网页发送过去的信息经过后端的Python程序处理，在新打开的页面上返回排名后的视频列表的简单版本就完成了！当然，就UI来说肯定不够好，所以我就开始修改后端程序和前端网页，让返回的数据可以显示在同一页面上。</p>
-									<p>That's where the <a href="https://developer.mozilla.org/en-US/docs/Web/HTTP/Guides/CORS" target="_blank" rel="noopener noreferrer">Cross-Origin Resource Sharing (CORS)</a> problem showed up. The browser blocked HTTP requests from different origin for security, that's why I can't modify the frontend page after receiving data from the backend. After I followed the <a href="https://cloud.google.com/run/docs/write-http-functions#handling_cors_cors_support" target="_blank" rel="noopener noreferrer">Google Cloud Run Guide: handling CORS support</a> to edit the headers manually both in frontend and backend, the results returned directly to the frontend page! </p>
-									<p>After that, I adjusted some CSS to make the results look better. When I improved the interface, I inspired by the <code>slideshow.js</code> that I used in <a href="mod.html" target="_blank">the mod project page</a>! I modified and created a new javascript file that called <code>pageshow.js</code> to handle the pagination so that user can switch between result pages without reloading the current page. The following video showcase the website version, and you can also try it yourself using the form below! </p>
+									<p>这就是<a href="https://developer.mozilla.org/en-US/docs/Web/HTTP/Guides/CORS" target="_blank" rel="noopener noreferrer">Cross-Origin Resource Sharing (CORS)</a>问题发生的地方。浏览器出于安全阻挡了后端服务器返回来的信息，所以无法在同一页面对这些信息进行处理并显示出来！在经过了各种搜索和尝试后，我跟着<a href="https://cloud.google.com/run/docs/write-http-functions#handling_cors_cors_support" target="_blank" rel="noopener noreferrer">Google Cloud Run Guide: handling CORS support</a>在前后端都修改了特定请求的Headers，让后端的数据成功返回并显示在前端了！</p>
+									<p>在这之后，我又调整了CSS等文件，让排名后视频列表的UI看上去舒服了很多。考虑到视频多的时候会让一页太长，我又增加了翻页的功能。原本翻页的功能需要整个页面的刷新，但那样会导致请求变化、跳转时间等问题，很麻烦……在找解决方法时，我从上一个项目网页<a href="mod.html" target="_blank">游戏角色模组</a>那里得到了灵感！在制作那个网页时，用了slideshow显示图片的方法，我觉得稍微修改一下就可以做成不用刷新的翻页功能！于是参考之前写的<code>slideshow.js</code>，我又写了<code>pageshow.js</code>来控制搜索结果的分页和翻页等功能。下面这个视频就演示了网页版本的运行，或者你也可以在文章下面的Form里自己试用！</p>
 									</div>
 									
 									<!-- Slideshow container -->
@@ -155,10 +155,20 @@
 
 									</div>
 									
+									<br>
+									<div class="langen">
 									<h3>Security Problem</h3>
 									<p>Like I mentioned earlier, I had to make sure the API key wasn't exposed in the code. To fix that, I deleted my old key, created a new one and hid it as an environment variable in the backend, so users can't see or access it directly from the browser or the project repository! I also added some basic input validation for the form, such as restricting the "number of top videos" field to numeric input, and checking for special characters when printing out user input. Even so, I think there are still a few ways the security can be improved, like adding more input validation for the playlist id and updating the headers to only allow requests from specific origins. </p>
 									
 									<p>GitHub Repositories: <a href="https://github.com/GraceLanBM/ProjectPlayList" target="_blank" rel="noopener noreferrer">ProjectPlayList</a>, <a href="https://github.com/GraceLanBM/GraceLanBM.github.io" target="_blank" rel="noopener noreferrer">GraceLanBM.github.io</a></p>
+									</div>
+									
+									<div class="langzh">
+									<h3>安全问题</h3>
+									<p>就像我前面提到的那样，将密钥写进明文代码里不是个好习惯，尤其是要展示出来时！为了提高安全性，我将旧的密钥删除、申请了新的密钥，并将其隐藏在后端的环境变量中。后端程序中也只引用该变量，这样用户就没办法在代码中直接看到它了！另外，我也在前端form中设置了可输入变量的类型和范围，比如设定“排名视频数量”只能输入1及以上数字、确认特殊字符并转义等。不过即使做了这些，我感觉在安全上还有可以提高的地方，比如对播放列表的id先一步验证或者更改headers让其进一步适用于专门的前后端交换之类的。</p>
+									
+									<p>GitHub库: <a href="https://github.com/GraceLanBM/ProjectPlayList" target="_blank" rel="noopener noreferrer">ProjectPlayList</a>, <a href="https://github.com/GraceLanBM/GraceLanBM.github.io" target="_blank" rel="noopener noreferrer">GraceLanBM.github.io</a></p>
+									</div>
 									
 									<!-- User input -->
 									<h3>Form</h3>
