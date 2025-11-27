@@ -45,20 +45,6 @@ function language(n) {
     let showbtn = document.getElementById("btn"+show);
     showbtn.classList.add("active");
     
-    // change placeholder for playlist.html
-    console.log("pathname=", window.location.pathname);
-    if (window.location.pathname == "/playlist.html") {
-        if (show == "en") {
-            $("#plid").attr("placeholder", "YouTube playlist id");
-            $("#top").attr("placeholder", "Number of top videos");
-            $("#submitButton").html("   Submit");
-        } else if (show == "zh") {
-            $("#plid").attr("placeholder", "YouTube播放列表id");
-            $("#top").attr("placeholder", "排名视频数量");
-            $("#submitButton").html("   提交");
-        }
-    }
-    
     // change url
     let newhash = "#" + show;
     let oldhash = "#" + hide;
