@@ -1,0 +1,220 @@
+<!DOCTYPE HTML>
+<!--
+	Editorial by HTML5 UP
+	html5up.net | @ajlkn
+	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+	
+	editor: Grace Lan
+	references: 1. special characters: https://stackoverflow.com/questions/1787322/what-is-the-htmlspecialchars-equivalent-in-javascript
+-->
+<html>
+	<head>
+		<title>VN</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		<link rel="stylesheet" href="assets/css/main.css" />
+		<!-- for font awesome icon -->
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+		<!-- for sidebar & screenshots -->
+		<script src="https://cdn.bootcss.com/jquery/3.7.1/jquery.min.js"></script>		
+		<script>
+			$(document).ready(function() {	
+				$.getJSON("assets/json/projects.json", function(data) {
+					$.each(data, function(index, pj) {
+						<!-- Add project link & list to the sidebar -->
+						$("#pjsen").append("<li><a href='"+pj.url+"#en'>"+pj.projectName[0]+"</a></li>");
+						$("#pjszh").append("<li><a href='"+pj.url+"#zh'>"+pj.projectName[1]+"</a></li>");
+					});
+				});
+			});
+		</script>
+	</head>
+	<body class="is-preload">
+
+		<!-- Wrapper -->
+			<div id="wrapper">
+
+				<!-- Main -->
+					<div id="main">
+						<div class="inner">
+
+							<!-- Header -->
+								<header id="header">
+                                <div class="langen"
+									<a href="vn.html#en" class="logo"><Strong>VN
+                                    </Strong></a>
+								</div>
+                                <div class="langzh">
+									<a href="vn.html#zh" class="logo"><strong>VN</strong></a>
+									</div>
+									<ul class="pagination" style="text-align:end">
+										<li><a href="javascript:language('en');" class="page" id="btnen">English</a></li>
+										<li><a href="javascript:language('zh');" class="page" id="btnzh">中文</a></li>
+									</ul>
+                                </header>
+
+							<!-- Content -->
+								<section>
+									
+									<!-- User input -->
+									<div class="row gtr-200">
+									<div class="col-6 col-12-medium">
+										<form id="linkform" action="iframe.php" method="POST">
+											<div class="row gtr-uniform" width="300px">
+											<div class="col-6 col-12-xsmall">
+												<input type="text" name="link" id="link" value="" placeholder="url" required>
+											</div>
+											
+											<div class="col-6 col-12-xsmall">
+												<button id="submitButton" type="submit" class="button primary"><i id="submitIcon" class="icon solid fa-search"></i>   Submit</button>
+											</div>
+											</div>
+										</form>
+									</div>
+									</div>
+                                    
+                                    <!-- <script>
+                                        const form = document.querySelector("#linkform");
+                                        
+                                        function specialChars(text) {
+											var map = {
+												"&": "&amp;",
+												"<": "&lt;",
+												">": "&gt;",
+												'"': "&quot;",
+												"'": "&#039;",
+											};
+											return text.replace(/[&<>"']/g, function(m) {return map[m];});
+										}
+                                        
+                                        async function sendData() {
+											<!-- Change button to loading --
+											document.getElementById("submitIcon").classList.remove("fa-search");
+											document.getElementById("submitIcon").classList.add("fa", "fa-spinner", "fa-spin");
+											document.getElementById("submitButton").classList.add("disabled");
+											
+                                            <!-- Prepare request body --
+                                            const formdata = new FormData(form);
+                                            console.log("form: ", ...formdata);
+                                            console.log("link: ", formdata.get("link"));
+                                            
+                                            <!-- Send request --
+                                            document.getElementById("result-container").innerHTML = "<iframe src='iframe.php?url=" + formdata.get("link") + "' height='100%' width='100%'></iframe>"
+                                            
+                                            <!-- Stop loading icon --
+                                            document.getElementById("submitIcon").classList.remove("fa", "fa-spinner", "fa-spin");
+                                            document.getElementById("submitIcon").classList.add("fa-search");
+                                            document.getElementById("submitButton").classList.remove("disabled"); 
+                                        }
+                                        
+                                        form.addEventListener("submit", (event) => {
+                                            event.preventDefault();
+                                            sendData();
+                                        });                                      
+                                    </script> -->
+                                    
+                                    <!-- Result container -->
+                                    <div class="result-container" id="result-container">
+                                    <iframe src="iframe.php?url=https://www.google.ca/" height='100%' width='100%'></iframe>
+                                    </div>
+                                    <ul class="pagination" id="pagination"></ul>
+									
+									<br>
+									<!-- Tag -->
+									<div id="tag">
+									<!-- Example
+									<a class="tagbox" href="search.html?tag=JavaScript">JavaScript</a>
+									-->
+									</div>
+								</section>
+						</div>
+					</div>
+
+				<!-- Sidebar -->
+					<div id="sidebar">
+						<div class="inner">
+
+							<!-- Search -->
+								<section id="search" class="alt">
+									<form method="get" action="search.html">
+                                        <div class="langen">
+										<input type="text" name="tag" id="queryen" placeholder="Search" />
+                                        </div>
+                                        <div class="langzh">
+                                        <input type="text" name="tag" id="queryzh" placeholder="搜索" />
+                                        </div>
+									</form>
+								</section>
+					
+							<!-- Menu -->
+                            <div class="langen">
+                                <nav class="menu">
+									<header class="major">
+										<h2>Menu</h2>
+									</header>
+									<ul>
+										<li><a href="index.html#en">Home</a></li>
+										<li><span class="opener">Projects</span>
+											<ul id="pjsen"></ul>
+										</li>
+										<li><a href="interests.html#en">Interests</a></li>
+									</ul>
+                                </nav>
+                            </div>
+                                
+                            <div class="langzh">
+                                <nav class="menu">
+                                    <header class="major">
+										<h2>菜单</h2>
+									</header>
+									<ul>
+										<li><a href="index.html#zh">首页</a></li>
+										<li><span class="opener">项目</span>
+											<ul id="pjszh"></ul>
+										</li>
+										<li><a href="interests.html#zh">兴趣爱好</a></li>
+									</ul>
+                                </nav>
+                            </div>
+					
+							<!-- Section -->
+								<section>
+									<div class="langen">
+									<header class="major">
+										<h2>Get in touch !</h2>
+									</header>
+                                    </div>
+                                    
+                                    <div class="langzh">
+									<header class="major">
+										<h2>联系方式</h2>
+									</header>
+                                    </div>
+                                    
+									<ul class="contact">
+										<li class="icon brands fa-github-square"><a href="https://github.com/GraceLanBM" target="_blank" rel="noopener noreferrer">GraceLanBM</a></li>
+										<li class="icon brands fa-linkedin-square"><a href="https://www.linkedin.com/in/grace-lan-8b763a239" target="_blank" rel="noopener noreferrer">Grace Lan</a></li>
+										<li class="icon solid fa-envelope"><a href="mailto:tianhan.lan@alumni.ucalgary.ca" target="_blank" rel="noopener noreferrer">tianhan.lan@alumni.ucalgary.ca</a></li>
+									</ul>
+								</section>
+					
+							<!-- Footer -->
+								<footer id="footer">
+									<p class="copyright">&copy; 2025 Grace Lan. All rights reserved. Design: <a href="https://html5up.net">HTML5 UP</a>.</p>
+								</footer>
+					
+						</div>
+					</div>
+			</div>
+
+		<!-- Scripts -->
+			<script src="assets/js/jquery.min.js"></script>
+			<script src="assets/js/browser.min.js"></script>
+			<script src="assets/js/breakpoints.min.js"></script>
+			<script src="assets/js/util.js"></script>
+			<script src="assets/js/main.js"></script>
+			<script src="assets/js/pageshow.js"></script>
+            <script src="assets/js/translate.js"></script>
+
+	</body>
+</html>
