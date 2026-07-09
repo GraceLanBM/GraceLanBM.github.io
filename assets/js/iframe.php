@@ -8,7 +8,7 @@ Retrieved 2026-07-09, License - CC BY-SA 4.0
 <html>
 <body>
 
-<?php echo file_get_contents($_REQUEST['link']); ?>
+<?php echo file_get_contents($_REQUEST['url']); ?>
 
 </body>
 </html>
